@@ -1,5 +1,20 @@
 <html>
   <body>
-    <h1>Testing</h1>
+    <h1 id="testing" onclick="javascript:testingClick()">Testing</h1>
+    <script>
+      function testingClick() {
+        document.getElementById("testing").style.color = getColour();
+      }
+
+      function getColour() {
+        switch (Math.floor(Math.random() * 5)) {
+          case 0: return "green";
+          case 1: return "red";
+          case 2: return "blue";
+          case 3: return "yellow";
+          case 4: return "brown";
+        }
+      }
+    </script>
   </body>
 </html>
