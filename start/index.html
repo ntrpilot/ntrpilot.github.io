@@ -1,8 +1,62 @@
 <html>
-    <head>
-        <link rel="stylesheet" href="../styles.css">
-    </head>
-    <body>
-        <h1>Start Here with bob</h1>
-    </body>
+
+<head>
+    <link rel="stylesheet" href="../styles.css">
+
+    <style>
+        :root {
+            --frame-colour: black;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .vbar {
+            border-left: 4px solid var(--frame-colour);
+        }
+
+        .hbar {
+            border-bottom: 4px solid var(--frame-colour);
+        }
+
+        .answer>span {
+            font-size: 2.5rem;
+            width: 2.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hang-man">
+        <div class="top">
+            <div class="hbar"></div>
+            <div class="vbar"></div>
+        </div>
+
+        <div class="head vbar">
+            <div class="circ"></div>
+        </div>
+
+        <div class="body vbar">
+            <div class="larm vbar"></div>
+            <div class="chest vbar"></div>
+            <div class="rarm vbar"></div>
+        </div>
+
+        <div class="legs">
+            <div class="lleg vbar"></div>
+            <div class="rleg vbar"></div>
+        </div>
+
+        <div class="base hbar"></div>
+    </div>
+
+    <div class="answer" id="answer"></div>
+
+    <div class="hints">
+
+    </div>
+</body>
+
 </html>
