@@ -80,9 +80,9 @@
 
 <body>
     <div class="hang-man">
-        <div class="top">
-            <div class="hbar"></div>
-            <div class="vbar"></div>
+        <div class="top vbar">
+            <div class="hbar" style="align-self: flex-start;"></div>
+            <div class="vbar" style="height: 20px;"></div>
         </div>
 
         <div class="head vbar">
@@ -112,19 +112,24 @@
 
     <script>
 
+        const ANSWER = "BABY-SHARK";
+
         const input = document.getElementById("input");
         input.addEventListener("keyup", e => {
             updateInput();
-            console.log(input.value);
+            updateAnswer(input.value);
         })
         updateInput();
-
+        
         function updateInput() {
             const { value } = input;
-
-            input.value = new Set(value.split("")).values.join("");
-
+            
+            input.value = new Set(value.split("")).values().join("");
             input.focus();
+        }
+        
+        function updateAnswer(answerLetters) {
+            console.log(input.value);
         }
 
     </script>
