@@ -143,6 +143,7 @@
 
             LETTERS.forEach(l => {
                 const key = document.createElement('span');
+                key.innerText = l;
 
                 if (used.has(l)) {
                     key.classList.add('used');
@@ -159,7 +160,7 @@
         }
 
         function updateAnswer(answerLetters) {
-            answer.innerHtml = ANSWER
+            answer.innerHTML = ANSWER
                 .map(l => used.has(l) ? l : '_')
                 .map(l => `<span>${l}</span>`)
                 .join('');
