@@ -103,33 +103,77 @@
         <div class="base hbar"></div>
     </div>
 
-    <input type="text" style="display: none" id="input">
     <div class="answer" id="answer"></div>
+
+    <div id="letters"></div>
 
     <div class="hints">
 
     </div>
 
     <script>
-
+        const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         const ANSWER = "BABY-SHARK";
+        let used, won;
+
+        reset();
 
         const input = document.getElementById("input");
         input.addEventListener("keyup", e => {
             updateInput();
             updateAnswer(input.value);
-        })
-        updateInput();
-        
-        function updateInput() {
-            const { value } = input;
-            
-            input.value = Array.from(new Set(value.split("")).values()).join("");
-            input.focus();
+        });
+
+        const letters = document.getElementById("letters");
+        const answer = document.getElementById("answer");
+
+        function reset() {
+            unused = new Set(LETTERS.split(''));
+            used = new Set(['-']);
+
+            update();
         }
-        
+
+        function update() {
+            updateWin();
+            updateInput();
+            updateAnswer();
+        }
+
+        function updateInput() {
+            letters.innerHTML = '';
+
+            if (won) {
+                return;
+            }
+
+            LETTERS.forEach(l => {
+                const key = document.createElement('span');
+
+                if (used.has(l)) {
+                    key.classList.add('used');
+                } else {
+
+                    key.addEventListener('click', () => {
+                        used.add(l);
+                        update();
+                    });
+                }
+
+                letters.appendChild(key);
+            });
+        }
+
         function updateAnswer(answerLetters) {
-            console.log(input.value);
+            answer.innerHtml = ANSWER
+                .map(l => used.has(l) ? l : '_')
+                .map(l => `<span>${l}</span>`)
+                .join('');
+        }
+
+        function updateWin() {
+            won = ANSWER.find(l => !used.has(l)) === -1;
+            // TODO Show win message
         }
 
     </script>
