@@ -112,8 +112,8 @@
     </div>
 
     <script>
-        const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        const ANSWER = "BABY-SHARK";
+        const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('');
+        const ANSWER = "BABY-SHARK".split('');
         let used, won;
 
         reset();
@@ -128,7 +128,7 @@
         const answer = document.getElementById("answer");
 
         function reset() {
-            unused = new Set(LETTERS.split(''));
+            unused = new Set(LETTERS);
             used = new Set(['-']);
 
             update();
