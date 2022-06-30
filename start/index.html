@@ -115,17 +115,11 @@
         const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('');
         const ANSWER = "BABY-SHARK".split('');
         let used, won;
-
-        reset();
-
-        const input = document.getElementById("input");
-        input.addEventListener("keyup", e => {
-            updateInput();
-            updateAnswer(input.value);
-        });
-
+        
         const letters = document.getElementById("letters");
         const answer = document.getElementById("answer");
+
+        reset();
 
         function reset() {
             unused = new Set(LETTERS);
