@@ -124,7 +124,7 @@
         function updateInput() {
             const { value } = input;
             
-            input.value = Arrray.from(new Set(value.split("")).values()).join("");
+            input.value = Array.from(new Set(value.split("")).values()).join("");
             input.focus();
         }
         
