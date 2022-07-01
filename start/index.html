@@ -273,8 +273,8 @@
             if (won) {
                 wonMessage.style.display = 'block';
 
-                setTimeout(() => wonMessage.getElementById('hint1').removeAttribute('disabled'), 1 * 1000);
-                setTimeout(() => wonMessage.getElementById('hint2').removeAttribute('disabled'), 2 * 1000);
+                setTimeout(() => document.getElementById('hint1').removeAttribute('disabled'), 1 * 1000);
+                setTimeout(() => document.getElementById('hint2').removeAttribute('disabled'), 2 * 1000);
             }
 
             lost = getIncorrectGuesses().length >= 6;
