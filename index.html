@@ -8,14 +8,24 @@
   <title>I love you ❤️</title>
 
   <link rel="stylesheet" href="styles.css">
+
+  <style>
+    .hide {
+      text-decoration: none;
+      color: black;
+      cursor: pointer;
+    }
+  </style>
 </head>
 
 <body>
   <h1>Welcome to your puzzle 🧩</h1>
   <p>Event through I had to go <br> and you had to stay</p>
-  <p><a href="https://ntrpilot.github.io/start/" target="_self">Here</a>'s a bit of fun for you <br> for while I am
-    away.</p>
-  <p>Some simple games to play <br> I made for you</p>
+  <p><a href="https://ntrpilot.github.io/start/" target="_self" class="hide" id="hint">Here</a>'s a bit of fun for you
+    <br> for
+    while I am
+    away</p>
+  <p>Some simple games to play <br> I made they just for you</p>
   <p>There are clues and hints <br> but you'll know what to do</p>
   <p>Play until the end and find <br> your plans for Friday night</p>
   <p>Sorry I can't be there with you <br> but next time I just might</p>
@@ -27,12 +37,19 @@
   <div id="start" style="display: none;">
     <h3>Let's begin 🕵🏼‍♀️</h3>
     <a href="#" target="_self">click Here to start</a>
+    <br>
+    <div style="display: flex; justify-content: space-evenly; width: 100%">
+      <button id="hint1Btn" title="Easy there.. At least try to figure it out first :D this will be available soon."
+        disabled="disabled" onclick="showHint()">Hint</button>
+    </div>
   </div>
 
+
   <script>
-    const DEADLINE = 'July 1 2022 14:42:00';
+    const DEADLINE = 'July 1 2022 14:48:00';
     update(getTimeRemaining(DEADLINE));
     initializeClock('countdown-time', DEADLINE);
+    setTimeout(() => document.getElementById('hint1Btn').removeAttribute('disabled'), 30 * 1000); Í
 
     function getTimeRemaining(endtime) {
       const total = Date.parse(endtime) - Date.parse(new Date());
@@ -60,6 +77,7 @@
           'seconds: ' + t.seconds;
         if (t.total <= 0) {
           clearInterval(timeinterval);
+          update(t);
         }
       }, 100);
     }
@@ -69,6 +87,10 @@
         document.getElementById('start').style.display = 'block';
         document.getElementById('countdown').style.display = 'none';
       }
+    }
+
+    function showHint() {
+      document.getElementById('hint').classList.remove('hide');
     }
 
   </script>
