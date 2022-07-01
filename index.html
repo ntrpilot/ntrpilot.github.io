@@ -1,20 +1,77 @@
-<html>
-  <body>
-    <h1 id="testing" onclick="javascript:testingClick()">Testing</h1>
-    <script>
-      function testingClick() {
-        document.getElementById("testing").style.color = getColour();
-      }
+<!DOCTYPE html>
+<html lang="en">
 
-      function getColour() {
-        switch (Math.floor(Math.random() * 5)) {
-          case 0: return "green";
-          case 1: return "red";
-          case 2: return "blue";
-          case 3: return "yellow";
-          case 4: return "brown";
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I love you ❤️</title>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <h1>Welcome to your puzzle 🧩</h1>
+  <p>Event through I had to go <br> and you had to stay</p>
+  <p><a href="https://ntrpilot.github.io/start/" target="_self">Here</a>'s a bit of fun for you <br> for while I am
+    away.</p>
+  <p>Some simple games to play <br> I made for you</p>
+  <p>There are clues and hints <br> but you'll know what to do</p>
+  <p>Play until the end and find <br> your plans for Friday night</p>
+  <p>Sorry I can't be there with you <br> but next time I just might</p>
+  <p>Although it's not the sand and sun <br> I hope you have some fun</p>
+  <div id="countdown">
+    <h3>Your first clue will be ready in:</h3>
+    <h4 id="countdown-time"></h4>
+  </div>
+  <div id="start" style="display: none;">
+    <h3>Let's begin 🕵🏼‍♀️</h3>
+    <a href="#" target="_self">click Here to start</a>
+  </div>
+
+  <script>
+    const DEADLINE = 'July 1 2022 14:40:00 GMT+0000';
+    update(getTimeRemaining(DEADLINE));
+    initializeClock('countdown-time', DEADLINE);
+
+    function getTimeRemaining(endtime) {
+      const total = Date.parse(endtime) - Date.parse(new Date());
+      const seconds = Math.floor((total / 1000) % 60);
+      const minutes = Math.floor((total / 1000 / 60) % 60);
+      const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
+      const days = Math.floor(total / (1000 * 60 * 60 * 24));
+
+      return {
+        total,
+        days,
+        hours,
+        minutes,
+        seconds
+      };
+    }
+
+    function initializeClock(id, endtime) {
+      const clock = document.getElementById(id);
+      const timeinterval = setInterval(() => {
+        const t = getTimeRemaining(endtime);
+        clock.innerHTML = 'days: ' + t.days + '<br>' +
+          'hours: ' + t.hours + '<br>' +
+          'minutes: ' + t.minutes + '<br>' +
+          'seconds: ' + t.seconds;
+        if (t.total <= 0) {
+          clearInterval(timeinterval);
         }
+      }, 100);
+    }
+
+    function update({ total }) {
+      if (total <= 0) {
+        document.getElementById('start').style.display = 'block';
+        document.getElementById('countdown').style.display = 'none';
       }
-    </script>
-  </body>
+    }
+
+  </script>
+</body>
+
 </html>
