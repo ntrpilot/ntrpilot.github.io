@@ -5,8 +5,49 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BABY-SHARK</title>
+
+    <style>
+        #hint2, #hint3, #hint4 {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-    
+    <h1>Do do do do 🦈</h1>
+    <p>Well done of solving the first puzzle, I hope you had fun with it.</p>
+    <p>I am not going to go so easy on you this time! 🤔</p>
+    <hr>
+    <p>I seem to remember there being something interesting about <pre>XXX</pre> - Maybe you should <span id="hint1">read <span id="hint2">(read.. as in like a <span id="hint3"><b>purple</b></span> book)</span></span> up on it...</p>
+    <p id="hint4">The DMS 😋 Look it up in your DSM</p>
+    <hr>
+    <div style="display: flex; justify-content: space-evenly; width: 100%">
+        <button id="hint1Btn" title="Easy there.. At least try to figure it out first :D this will be available soon." disabled="disabled" onclick="showHintOne()">Hint 1</button>
+        <button id="hint2Btn" title="Easy there.. At least try to figure it out first :D this will be available soon." disabled="disabled" onclick="showHintTwo()">Hint 2</button>
+        <button id="hint3Btn" title="Easy there.. At least try to figure it out first :D this will be available soon." disabled="disabled" onclick="showHintThree()">Hint 3</button>
+        <button id="hint4Btn" title="Easy there.. At least try to figure it out first :D this will be available soon." disabled="disabled" onclick="showHintFour()">Hint 4</button>
+    </div>
+
+    <script>
+        setTimeout(() => document.getElementById('hint1Btn').removeAttribute('disabled'), 1 * 1000);
+
+        function showHintOne() {
+            document.getElementById('hint1').style.fontWeight = 'bolder';
+            setTimeout(() => document.getElementById('hint2Btn').removeAttribute('disabled'), 1 * 1000);
+        }
+
+        function showHintTwo() {
+            document.getElementById('hint2').style.display = 'inline'
+            setTimeout(() => document.getElementById('hint3Btn').removeAttribute('disabled'), 1 * 1000);
+        }
+
+        function showHintThree() {
+            document.getElementById('hint3').style.display = 'inline'
+            setTimeout(() => document.getElementById('hint4Btn').removeAttribute('disabled'), 1 * 1000);
+        }
+
+        function showHintFour() {
+            document.getElementById('hint4').style.display = 'inline'
+        }
+    </script>
 </body>
 </html>
