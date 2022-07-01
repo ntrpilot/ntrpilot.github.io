@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Directions</title>
+
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <h1>Directions</h1>
+    <p>Let's start at the <a href="https://goo.gl/maps/CxVSQnpt5iN5AF8f8" target="_blank"
+            rel="noopener noreferrer">beginning</a> and see where it takes up..</p>
+    <h3>TL - TR - TR - O2nd - O4h - 1stL</h3>
+    <div>
+        <input type="text" name="answer" id="answer" placeholder="Where are we?">
+        <button>Check</button>
+    </div>
+
+    <div style="display: none;" id="nope">Nope - Try again</div>
+    <div style="display: none;" id="yes">YAAY 🎉</div>
+
+    <hr>
+    <p style="display: none;" id="hint1">T = T junction | O = Round-about</p>
+    <p style="display: none;" id="hint2">TL = Left at the T junction | O1st = 1st exit at the Round-about</p>
+
+    <hr>
+    <div style="display: flex; justify-content: space-evenly; width: 100%">
+        <button id="hint1Btn" title="Easy there.. At least try to figure it out first :D this will be available soon."
+            disabled="disabled" onclick="showHintOne()">Hint 1</button>
+        <button id="hint2Btn" title="Easy there.. At least try to figure it out first :D this will be available soon."
+            disabled="disabled" onclick="showHintTwo()">Hint 2</button>
+    </div>
+
+    <script>
+        setTimeout(() => document.getElementById('hint1Btn').removeAttribute('disabled'), 30 * 1000);
+
+        function showHintOne() {
+            document.getElementById('hint1').style.display = 'block';
+            setTimeout(() => document.getElementById('hint2Btn').removeAttribute('disabled'), 30 * 1000);
+        }
+
+        function showHintTwo() {
+            document.getElementById('hint2').style.display = 'block';
+        }
+    </script>
+</body>
+
+</html>
