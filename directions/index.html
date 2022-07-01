@@ -46,6 +46,19 @@
         function showHintTwo() {
             document.getElementById('hint2').style.display = 'block';
         }
+
+        function check() {
+            const test = document.getElementById('answer').value;
+            document.getElementById('answer').value = '';
+
+            if (test.toLowerCase().includes('belfry')) {
+                document.getElementById('nope').style.display = 'none';
+                document.getElementById('yes').style.display = 'block';
+            } else {
+                document.getElementById('nope').style.display = 'block';
+                document.getElementById('yes').style.display = 'none';
+            }
+        }
     </script>
 </body>
 
