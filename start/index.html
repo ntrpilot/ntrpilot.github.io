@@ -31,6 +31,10 @@
             justify-content: center;
         }
 
+        .hang-man .hide {
+            border-color: transparent !important;
+        }
+
         .top>div {
             flex: 1 1 0;
         }
@@ -119,21 +123,21 @@
         </div>
 
         <div class="head vbar">
-            <div class="circ"></div>
+            <div class="circ hide"></div>
         </div>
 
         <div class="body vbar">
-            <div class="larm vbar"></div>
-            <div class="chest vbar"></div>
-            <div class="rarm vbar"></div>
+            <div class="larm vbar hide"></div>
+            <div class="chest vbar hide"></div>
+            <div class="rarm vbar hide"></div>
         </div>
 
         <div class="legs vbar">
-            <div class="lleg vbar"></div>
-            <div class="rleg vbar"></div>
+            <div class="lleg vbar hide"></div>
+            <div class="rleg vbar hide"></div>
         </div>
 
-        <div class="base hbar"></div>
+        <div class="base hbar hide"></div>
     </div>
 
     <div class="answer" id="answer"></div>
@@ -146,22 +150,32 @@
 
     <script>
         const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('');
-        const ANSWER = "BABY-SHARK".split('');
-        let used, won;
+        const ANSWER = "/BABY-SHARK".split('');
+        let used, won, lost;
 
         const letters = document.getElementById("letters");
         const answer = document.getElementById("answer");
 
+        const head = document.querySelector(".hang-man .head .circ");
+        const chest = document.querySelector(".hang-man .chest");
+        const leftArm = document.querySelector(".hang-man .larm");
+        const rightArm = document.querySelector(".hang-man .rarm");
+        const leftLeg = document.querySelector(".hang-man .lleg");
+        const rightLeg = document.querySelector(".hang-man .rleg");
+        
         reset();
 
         function reset() {
             unused = new Set(LETTERS);
-            used = new Set(['-']);
+            used = new Set(['-', '/']);
+
+            won = lost = false;
 
             update();
         }
 
         function update() {
+            updateMan();
             updateWin();
             updateInput();
             updateAnswer();
@@ -170,7 +184,7 @@
         function updateInput() {
             letters.innerHTML = '';
 
-            if (won) {
+            if (won || lost) {
                 return;
             }
 
@@ -199,9 +213,23 @@
                 .join('');
         }
 
+        function updateMan() {
+            const answerSet = new Set(ANSWER);
+            const incorrect = Array.from(used.values())
+                .filter(used => !answerSet.has(used));
+
+            if (incorrect.length >= 1) head.classList.remove('hide');
+            if (incorrect.length >= 2) chest.classList.remove('hide');
+            if (incorrect.length >= 3) leftArm.classList.remove('hide');
+            if (incorrect.length >= 4) rightArm.classList.remove('hide');
+            if (incorrect.length >= 5) leftLeg.classList.remove('hide');
+            if (incorrect.length >= 6) rightLeg.classList.remove('hide');
+            if (incorrect.length >= 7) lost = true;
+        }
+
         function updateWin() {
-            won = ANSWER.find(l => !used.has(l)) === -1;
-            // TODO Show win message
+            won = ANSWER.find(l => !used.has(l)) == null;
+            // TODO Show win/lost message
         }
 
     </script>
