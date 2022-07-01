@@ -37,6 +37,7 @@
 
         .won, .lost {
             display: none;
+            justify-content: center;
         }
 
         .top>div {
@@ -164,8 +165,8 @@
             <p>See what happens if you go there 🤔</p>
         </div>
         <br>
-        <button disabled="disabled" onclick="showHintOne()">Hint 1</button>
-        <button disabled="disabled" onclick="showHintTwo()">Hint 2</button>
+        <button id="hint1Btn" disabled="disabled" onclick="showHintOne()">Hint 1</button>
+        <button id="hint2Btn" disabled="disabled" onclick="showHintTwo()">Hint 2</button>
     </div>
     <div class="lost">Aww 😔 <button onclick="javascript:reset()">Reset</button></div>
 
@@ -271,15 +272,15 @@
         function updateWin() {
             won = ANSWER.find(l => !used.has(l)) == null;
             if (won) {
-                wonMessage.style.display = 'block';
+                wonMessage.style.display = 'flex';
 
-                setTimeout(() => document.getElementById('hint1').removeAttribute('disabled'), 1 * 1000);
-                setTimeout(() => document.getElementById('hint2').removeAttribute('disabled'), 2 * 1000);
+                setTimeout(() => document.getElementById('hint1Btn').removeAttribute('disabled'), 1 * 1000);
+                setTimeout(() => document.getElementById('hint2Btn').removeAttribute('disabled'), 2 * 1000);
             }
 
             lost = getIncorrectGuesses().length >= 6;
             if (lost) {
-                lostMessage.style.display = 'block';
+                lostMessage.style.display = 'flex';
             }
         }
 
