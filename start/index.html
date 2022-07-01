@@ -35,6 +35,10 @@
             border-color: transparent !important;
         }
 
+        .won, .lost {
+            display: none;
+        }
+
         .top>div {
             flex: 1 1 0;
         }
@@ -164,7 +168,10 @@
         const rightArm = document.querySelector(".hang-man .rarm");
         const leftLeg = document.querySelector(".hang-man .lleg");
         const rightLeg = document.querySelector(".hang-man .rleg");
-        
+
+        const wonMessage = document.querySelector(".won");
+        const lostMessage = document.querySelector(".lost");
+
         reset();
 
         function reset() {
@@ -172,6 +179,13 @@
             used = new Set(['-', '/']);
 
             won = lost = false;
+
+            head.classList.add('hide');
+            chest.classList.add('hide');
+            leftArm.classList.add('hide');
+            rightArm.classList.add('hide');
+            leftLeg.classList.add('hide');
+            rightLeg.classList.add('hide');
 
             update();
         }
@@ -231,10 +245,17 @@
             if (incorrect.length >= 5) leftLeg.classList.remove('hide');
             if (incorrect.length >= 6) rightLeg.classList.remove('hide');
         }
-        
+
         function updateWin() {
             won = ANSWER.find(l => !used.has(l)) == null;
+            if (won) {
+                wonMessage.style.display = 'block';
+            }
+
             lost = getIncorrectGuesses().length >= 6;
+            if (lost) {
+                lostMessage.style.display = 'block';
+            }
 
 
             // TODO Show win/lost message
