@@ -141,8 +141,10 @@
     </div>
 
     <div class="answer" id="answer"></div>
-
     <div id="letters"></div>
+
+    <div class="won">YAAY 🎉</div>
+    <div class="lost">Aww 😔 <button onclick="javascript:reset()">Reset</button></div>
 
     <div class="hints">
 
@@ -213,10 +215,14 @@
                 .join('');
         }
 
-        function updateMan() {
+        function getIncorrectGuesses() {
             const answerSet = new Set(ANSWER);
-            const incorrect = Array.from(used.values())
+            return Array.from(used.values())
                 .filter(used => !answerSet.has(used));
+        }
+
+        function updateMan() {
+            const incorrect = getIncorrectGuesses();
 
             if (incorrect.length >= 1) head.classList.remove('hide');
             if (incorrect.length >= 2) chest.classList.remove('hide');
@@ -224,11 +230,13 @@
             if (incorrect.length >= 4) rightArm.classList.remove('hide');
             if (incorrect.length >= 5) leftLeg.classList.remove('hide');
             if (incorrect.length >= 6) rightLeg.classList.remove('hide');
-            if (incorrect.length >= 7) lost = true;
         }
-
+        
         function updateWin() {
             won = ANSWER.find(l => !used.has(l)) == null;
+            lost = getIncorrectGuesses().length >= 6;
+
+
             // TODO Show win/lost message
         }
 
