@@ -95,13 +95,17 @@
         }
 
         .answer::before {
-            content: 'https://ntrpilot.github.io ';
-            display: none;
+            content: '';
+            display: inline-flex;
             align-items: center;
             float: left;
             position: absolute;
             margin-left: -47em;
             line-height: 2.5rem;
+        }
+
+        .answer.withHint::before {
+            content: 'https://ntrpilot.github.io';
         }
 
         #letters {
@@ -169,8 +173,10 @@
             <p>See what happens if you go there 🤔</p>
         </div>
         <br>
-        <button id="hint1Btn" disabled="disabled" onclick="showHintOne()">Hint 1</button>
-        <button id="hint2Btn" disabled="disabled" onclick="showHintTwo()">Hint 2</button>
+        <div style="display: flex; align-items: space-between;">
+            <button id="hint1Btn" disabled="disabled" onclick="showHintOne()">Hint 1</button>
+            <button id="hint2Btn" disabled="disabled" onclick="showHintTwo()">Hint 2</button>
+        </div>
     </div>
     <div class="lost">Aww 😔 <button onclick="javascript:reset()">Reset</button></div>
 
@@ -293,8 +299,7 @@
         }
 
         function showHintTwo() {
-            const hint = window.getComputedStyle(answer, ':before');
-            hint.display = 'inline-flex';
+            answer.classList.add('withHint');
         }
 
     </script>
