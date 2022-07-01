@@ -91,6 +91,14 @@
             width: 3rem;
         }
 
+        .answer::before {
+            content: '';
+            display: flex;
+            align-items: center;
+            position: relative;
+            left: -100%
+        }
+
         #letters {
             display: flex;
             justify-content: center;
@@ -147,7 +155,18 @@
     <div class="answer" id="answer"></div>
     <div id="letters"></div>
 
-    <div class="won">YAAY 🎉</div>
+    <div class="won">
+        <h1>YAAY 🎉</h1>
+        <p>Well done on passing the first challenge!</p>
+        <p>Let's see if you can pass the next 😉</p>
+        <div id="hint1" style="display: none;">
+            <hr>
+            <p>See what happens if you go there 🤔</p>
+        </div>
+        <br>
+        <button disabled="disabled" onclick="showHintOne()">Hint 1</button>
+        <button disabled="disabled" onclick="showHintTwo()">Hint 2</button>
+    </div>
     <div class="lost">Aww 😔 <button onclick="javascript:reset()">Reset</button></div>
 
     <div class="hints">
@@ -253,15 +272,24 @@
             won = ANSWER.find(l => !used.has(l)) == null;
             if (won) {
                 wonMessage.style.display = 'block';
+
+                setTimeout(() => wonMessage.getElementById('hint1').removeAttribute('disabled'), 1 * 1000);
+                setTimeout(() => wonMessage.getElementById('hint2').removeAttribute('disabled'), 2 * 1000);
             }
 
             lost = getIncorrectGuesses().length >= 6;
             if (lost) {
                 lostMessage.style.display = 'block';
             }
+        }
 
+        function showHintOne() {
+            document.getElementById('hint1').style.display = 'block';
+        }
 
-            // TODO Show win/lost message
+        function showHintTwo() {
+            const hint = document.querySelector('.answer::before');
+            hint.style.content = 'https://ntrpilot.github.io';
         }
 
     </script>
