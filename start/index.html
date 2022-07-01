@@ -215,7 +215,7 @@
 
         function updateMan() {
             const answerSet = new Set(ANSWER);
-            const incorrect = Array.from(used).values()
+            const incorrect = Array.from(used.values())
                 .filter(used => !answerSet.has(used));
 
             if (incorrect.length >= 1) head.classList.remove('hide');
