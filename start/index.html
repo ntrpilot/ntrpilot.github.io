@@ -35,7 +35,8 @@
             border-color: transparent !important;
         }
 
-        .won, .lost {
+        .won,
+        .lost {
             display: none;
             flex-direction: column;
             align-items: center;
@@ -94,11 +95,13 @@
         }
 
         .answer::before {
-            content: '';
-            display: flex;
+            content: 'https://ntrpilot.github.io ';
+            display: none;
             align-items: center;
-            position: relative;
-            left: -100%
+            float: left;
+            position: absolute;
+            margin-left: -47em;
+            line-height: 2.5rem;
         }
 
         #letters {
@@ -276,7 +279,6 @@
                 wonMessage.style.display = 'flex';
 
                 setTimeout(() => document.getElementById('hint1Btn').removeAttribute('disabled'), 1 * 1000);
-                setTimeout(() => document.getElementById('hint2Btn').removeAttribute('disabled'), 2 * 1000);
             }
 
             lost = getIncorrectGuesses().length >= 6;
@@ -287,11 +289,12 @@
 
         function showHintOne() {
             document.getElementById('hint1').style.display = 'block';
+            setTimeout(() => document.getElementById('hint2Btn').removeAttribute('disabled'), 1 * 1000);
         }
 
         function showHintTwo() {
             const hint = window.getComputedStyle(answer, ':before');
-            hint.content = 'https://ntrpilot.github.io';
+            hint.display = 'inline-flex';
         }
 
     </script>
