@@ -37,7 +37,7 @@
   <div id="start" style="display: none;">
     <h3>Let's begin 🕵🏼‍♀️</h3>
     <a href="#" target="_self">click Here to start</a>
-    <br>
+    <p></p>
     <div style="display: flex; justify-content: space-evenly; width: 100%">
       <button id="hint1Btn" title="Easy there.. At least try to figure it out first :D this will be available soon."
         disabled="disabled" onclick="showHint()">Hint</button>
@@ -46,7 +46,7 @@
 
 
   <script>
-    const DEADLINE = 'July 1 2022 14:48:00';
+    const DEADLINE = 'July 3 2022 12:00:00';
     update(getTimeRemaining(DEADLINE));
     initializeClock('countdown-time', DEADLINE);
     setTimeout(() => document.getElementById('hint1Btn').removeAttribute('disabled'), 30 * 1000); Í
