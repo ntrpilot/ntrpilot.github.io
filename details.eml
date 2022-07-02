@@ -1,0 +1,418 @@
+Delivered-To: ntrpilot@gmail.com
+Received: by 2002:a05:6830:1de6:b0:616:b04e:fb55 with SMTP id b6csp1043146otj;
+        Fri, 1 Jul 2022 06:13:50 -0700 (PDT)
+X-Google-Smtp-Source: AGRyM1vmYiWISqcZ/vUT1qYSwMlLWpeMPCC2/hQ0EphvygpeAkMjrzBm4wfo6LzZT8ZjuoX/Ip8d
+X-Received: by 2002:ab0:300b:0:b0:381:f97a:eb24 with SMTP id f11-20020ab0300b000000b00381f97aeb24mr8085698ual.13.1656681230510;
+        Fri, 01 Jul 2022 06:13:50 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1656681230; cv=none;
+        d=google.com; s=arc-20160816;
+        b=BZMCqM8R/c+ruYvSTcYDEAkCOwhr6LGi8Dj8LHxj1WqkP5AJqGFlpkn9Dy1Qt8st2e
+         NDCwJjvotlcsOAvcxLmqF24cX9GmQPApBsDNGLlUrc/ZpjLDJX1eKc6pwlRiGorT/OK6
+         cHymyGH2Fm7IOkOKNNVmuAqozG5aB+oQf0oxCF2qa4i3/sTzI+9bgdUzw5hq1DWHHjru
+         vARgfLMC2QXgai9QDl2qxE7d6luicJqvsaK++eV1L+c1+izpjKCjJfqyZvNkqXUjCkxG
+         zgVczFj9PMvbL14RN6Po4QqXLtWQdOGAGWPKyJEiyBJfR0wZV8gCWNrFf1Zb7trp+Fmq
+         K7VQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:subject:message-id:cc:to:from:date;
+        bh=XMQ4VTuLS+BnJl6VLZl1ZAM71ryRSL9bKAdUPAUpB6Q=;
+        b=YqMssNR1yZ/hiF2H0susTh8ky862rXWIdUt9wNizcnPOS43GtXD7uGOeSbtZ9Ltc+O
+         s2gPEKszlRvwF7XYApmgrvtCd6I5ONJC8Li9qkYUt2kcep3269wG2ldW5SW5eTsGKHEW
+         3AoF5jU0FiDvJJeQKSHJKa4o1MxnwxkjIgi8ldUrlxmOs1+msImgdX+dGE1o2SxM22od
+         eN87eSIZIk7mJLsE3uWZwLCyjGSCE0L2uKOTKCQZjyuJaPMZMY4TlGyRzkYNWOIxf1d+
+         WaSAZzgowGmahQXUpDOK2DTeSe2QD+shv6pstRG+9oFyoT7+H94adMR7sfFW5VwO3Zzf
+         tpFA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       spf=pass (google.com: domain of stay@qhotels.co.uk designates 209.242.69.231 as permitted sender) smtp.mailfrom=stay@qhotels.co.uk;
+       dmarc=pass (p=QUARANTINE sp=NONE dis=NONE) header.from=qhotels.co.uk
+Return-Path: <stay@qhotels.co.uk>
+Received: from mail.ihotelier.com (mtallm01.ihotelier.com. [209.242.69.231])
+        by mx.google.com with ESMTPS id p4-20020a67fc44000000b003542ba65567si5687530vsq.696.2022.07.01.06.13.50
+        for <ntrpilot@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 01 Jul 2022 06:13:50 -0700 (PDT)
+Received-SPF: pass (google.com: domain of stay@qhotels.co.uk designates 209.242.69.231 as permitted sender) client-ip=209.242.69.231;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of stay@qhotels.co.uk designates 209.242.69.231 as permitted sender) smtp.mailfrom=stay@qhotels.co.uk;
+       dmarc=pass (p=QUARANTINE sp=NONE dis=NONE) header.from=qhotels.co.uk
+Received: from mtal001.prod.res.ldc.tcinfra.com (unknown [10.80.0.59])
+	by mail.ihotelier.com (Postfix) with ESMTP id A2C15CC444;
+	Fri,  1 Jul 2022 08:13:49 -0500 (CDT)
+Date: Fri, 1 Jul 2022 08:13:49 -0500 (CDT)
+From: "stay@qhotels.co.uk" <stay@qhotels.co.uk>
+To: "ntrpilot@gmail.com" <ntrpilot@gmail.com>
+Cc: reservations@thecambridgebelfry.co.uk
+Message-ID: <395322958.1248461.1656681229664.JavaMail.emailprod1@mtallm01.ihotelier.com>
+Subject: Thank you for your reservation!    Your Reservation has been
+ confirmed
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_1248459_1955461274.1656681229663"
+
+------=_Part_1248459_1955461274.1656681229663
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+<head>
+=09<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"=
+>
+=09<title>Cambridge Belfry</title>
+=09<style>
+=09*{
+=09=09margin: 0;
+=09=09padding: 0;
+=09}
+=09img{
+=09=09border: 0;
+=09=09text-decoration: none;
+=09}
+=09a {text-decoration: none;}
+=09a:visited {text-decoration:none;}
+=09</style>
+</head>
+<body ><table width=3D"650" cellpadding=3D"0" cellspacing=3D"0" border=3D"0=
+" align=3D"center" style=3D"margin:auto;font-family:arial, verdana;">
+=09=09<tbody>
+=09=09=09<tr>
+=09=09=09=09<td align=3D"center" style=3D"padding-top:20px;padding-bottom:2=
+0px;background-color:#ffffff" bgcolor=3D"#ffffff">
+=09=09=09=09=09<a style=3D"display:block;color:#000000;font-size:20px;text-=
+decoration:none;line-height:40px;font-weight:bold;text-transform:uppercase;=
+" href=3D"https://www.thecambridgebelfry.co.uk/">
+=09=09=09=09=09=09<img src=3D"https://reservations.ihotelier.com/crs/hoteli=
+mages/HTML_imgs/113767/logo.png" alt=3D"Cambridge Belfry">
+=09=09=09=09=09</a>
+=09=09=09=09</td>
+=09=09=09</tr>
+=09=09=09<tr>
+=09=09=09=09<td align=3D"center" bgcolor=3D"white" style=3D"padding-top: 20=
+px;">
+=09=09=09=09=09<p>
+<style type=3D"text/css"><!--
+ FONT,BODY,A,TD,B,I {font-family:arial,helvetica,verdana;}
+ TD {font-size:8pt}
+//-->
+</style>
+<b><font size=3D"2">Package Reservation, Confirmation Number: <a><A href=3D=
+"https://reservations.travelclick.com/113767?confirmid=3D688197428&language=
+id=3D1">688197428</A></a> <a>Your Reservation has been confirmed</a>=C2=A0<=
+/font></b></p>
+=C2=A0
+
+<table bgcolor=3D"#cccc99" border=3D"0" cellpadding=3D"2" cellspacing=3D"1"=
+ width=3D"550">
+=09<tbody>
+=09=09<tr>
+=09=09=09<td colspan=3D"2"><b><font size=3D"2">Welcome</font></b></td>
+=09=09</tr>
+=09=09<tr bgcolor=3D"#ffffff">
+=09=09=09<td valign=3D"top">
+=09=09=09<p><font color=3D"#000000">Dear=C2=A0 <a><strong>Miss</strong></a>=
+<strong>=C2=A0<a>Amber</a> <a>Hepburn-Taylor</a>=C2=A0:</strong></font></p>
+
+=09=09=09<p><font color=3D"#000000"> </font></p>
+=09=09=09</td>
+=09=09</tr>
+=09</tbody>
+</table>
+
+<table bgcolor=3D"#cccc99" border=3D"0" cellpadding=3D"2" cellspacing=3D"1"=
+ width=3D"550">
+=09<tbody>
+=09=09<tr>
+=09=09=09<td height=3D"19" valign=3D"top"><b><font size=3D"2">Guest Info</f=
+ont></b></td>
+=09=09=09<td height=3D"19" valign=3D"top" width=3D"50%"><b><font size=3D"2"=
+>Credit Card Info</font></b></td>
+=09=09</tr>
+=09=09<tr bgcolor=3D"#ffffff">
+=09=09=09<td valign=3D"top"><font color=3D"#000000"><a>Miss</a> Amber Hepbu=
+rn-Taylor<br />
+=09=09=09Email: ntrpilot@gmail.com<br />
+=09=09=09Phone: <a>07925166802</a><br />
+=09=09=09<a> </a><br />
+=09=09=093 Cantelupe Road<BR>  Cambridge,England CB23 1LU<BR>UNITED KINGDOM=
+ </font></td>
+=09=09=09<td valign=3D"top"><font color=3D"#000000">Card Type: VISA<br />
+=09=09=09Card Number: ***********************7208<br />
+=09=09=09Expiration Date: xx/xx<br />
+=09=09=09Card Holder: MR N T ROBINSON<br />
+=09=09=09Your credit card has been charged GBP      <br />
+=09=09=09  </font></td>
+=09=09</tr>
+=09</tbody>
+</table>
+
+<table bgcolor=3D"#cccc99" border=3D"0" cellpadding=3D"2" cellspacing=3D"1"=
+ width=3D"550">
+=09<tbody>
+=09=09<tr>
+=09=09=09<td><b><font size=3D"2">Reservation Info</font></b></td>
+=09=09=09<td align=3D"right" valign=3D"top" width=3D"12%"><b><font size=3D"=
+2">Charge</font></b></td>
+=09=09</tr>
+=09=09<tr bgcolor=3D"#ffffff">
+=09=09=09<td valign=3D"top">
+=09=09=09<p>Confirmation Number: <A href=3D"https://reservations.travelclic=
+k.com/113767?confirmid=3D688197428&languageid=3D1">688197428</A><br />
+=09=09=09Book Date: July 1, 2022<br />
+=09=09=09Number of Rooms: 1<br />
+=09=09=09Number of Adults: 1<br />
+=09=09=09<a>Number</a> of Children:<a>0</a><br />
+=09=09=09<a>Number</a> of Infants: 0<br />
+=09=09=09Check In: July 8, 2022<br />
+=09=09=09Check Out: July 9, 2022<br />
+=09=09=09Total Stay: 1 night(s)<br />
+=09=09=09Rate Type: <a>Spa break 1 night</a></p>
+
+=09=09=09<hr color=3D"#cccc99" size=3D"1" />Room Type: Classic Double Room<=
+br />
+=09=09=09<a>FREE in room Wi-Fi. There's nothing standard about any of our C=
+lassic guest rooms. Experience true relaxation in this contemporary guest r=
+oom. Unwind in front of the HDTV, use the complimentary WiFi and freshen up=
+ in the elegant bathroom with walk-in shower and bath. Other amenities incl=
+ude coffee/tea facilities and laptop safe.</a>
+
+=09=09=09<p><a>Spa Break 1 night includes dinner & treatments<BR> <BR><UL><=
+LI>07/08/2022 ------ GBP       </LI></UL><BR>Package Includes : <BR>N/A</a>=
+<br />
+=09=09=09<a>One night Spa break for 2 people sharing (single supplements ap=
+ply) including dinner, breakfast & a 50 minute spa treatment per person. 25=
+% non-refundable deposit required on booking, balance due on departure or i=
+n the event of cancellation.=C2=A0 Dinner inclusive allows an evening guest=
+ food spend of =C2=A328 per person, all extras charged as taken.=C2=A0=C2=
+=A0Please note: Children under the age of 16 stay for free but this does no=
+t include any spa treatments or dinner. However, you do have the option to =
+pay the full adult price in order to receive these.</a></p>
+
+=09=09=09<p><a> </a></p>
+
+=09=09=09<p><a> </a></p>
+
+=09=09=09<p><a> </a></p>
+=09=09=09<span style=3D"font-size:12px;"> </span>
+
+=09=09=09<p>Policy: Check-in time 3 pm
+<BR>Check-out time 11 am
+<BR>Rates subject to change
+<BR>Parking is available
+<BR>Children aged 0 - 4 can stay and eat for free at QHotels. Children aged=
+ 5-16 stay for free when sharing parents room. Children aged 5 - 12 years w=
+ill be charged =C2=A35 per child for breakfast and children aged 13 - 16 ye=
+ars will be charged =C2=A37.50 per child for breakfast. All other meals are=
+ chargeable as taken; children's dinner menus include small and large porti=
+on sizes to cater for children of all ages.<BR><BR>Cancellation Policy: Non=
+-refundable or transferable<BR><BR><BR><BR>Deposit Policy: 25% Deposit to s=
+ecure booking<BR><BR></p>
+=09=09=09</td>
+=09=09=09<td align=3D"right" height=3D"29" nowrap=3D"nowrap" valign=3D"top"=
+ width=3D"12%"><b><font color=3D"#000000" size=3D"2">GBP       </font></b><=
+/td>
+=09=09</tr>
+=09=09<tr>
+=09=09=09<td><b><font size=3D"2">Extended Stay Nights</font></b></td>
+=09=09=09<td align=3D"right" valign=3D"top" width=3D"12%">=C2=A0</td>
+=09=09</tr>
+=09=09<tr bgcolor=3D"#ffffff">
+=09=09=09<td valign=3D"top" width=3D"80%">
+=09=09=09<p class=3D"MsoNormal" style=3D"margin: 0in 0in 0pt;"><span style=
+=3D"font-family: Arial; font-size: 8pt;">Extended Stay: 0 night(s)<o:p></o:=
+p></span></p>
+
+=09=09=09<p class=3D"MsoNormal" style=3D"margin: 0in 0in 0pt;"><span lang=
+=3D"CA" style=3D"font-family: Arial; font-size: 8pt;"> </span></p>
+=09=09=09</td>
+=09=09=09<td align=3D"right" bgcolor=3D"#ffffff" nowrap=3D"nowrap" valign=
+=3D"top"><b><font color=3D"#000000" size=3D"2">GBP     </font></b></td>
+=09=09</tr>
+=09=09<tr>
+=09=09=09<td><b><font size=3D"2">Enhancements:</font></b></td>
+=09=09=09<td align=3D"right" valign=3D"top" width=3D"12%">=C2=A0</td>
+=09=09</tr>
+=09=09<tr bgcolor=3D"#ffffff">
+=09=09=09<td valign=3D"top" width=3D"82%">Package Options: <a> </a></td>
+=09=09=09<td align=3D"right" bgcolor=3D"#ffffff" nowrap=3D"nowrap" valign=
+=3D"top"><b><font color=3D"#000000" size=3D"2">GBP     </font></b></td>
+=09=09</tr>
+=09=09<tr bgcolor=3D"#ffffff">
+=09=09=09<td valign=3D"top" width=3D"82%">Enhancement: <a><UL><LI>Romantic =
+Gesture <I>(<S>GBP      </S>, GBP      )</I><BR>Add an extra element of Rom=
+ance in your room on arrival with a Bottle of CHIO Prosecco DOCG &amp; luxu=
+ry chocolates.</LI></UL></a></td>
+=09=09=09<td align=3D"right" bgcolor=3D"#ffffff" nowrap=3D"nowrap" valign=
+=3D"top">
+=09=09=09<p><b><font color=3D"#000000" size=3D"2"><a>GBP      </a></font></=
+b></p>
+
+=09=09=09<p><a><strong><font size=3D"2">GBP     </font></strong></a></p>
+=09=09=09</td>
+=09=09</tr>
+=09=09<tr align=3D"right" bgcolor=3D"#ffffff" valign=3D"middle">
+=09=09=09<td align=3D"right"><b><font color=3D"#000000" size=3D"2">Tax</fon=
+t></b></td>
+=09=09=09<td nowrap=3D"nowrap"><b><font color=3D"#000000" size=3D"2">GBP 0.=
+00</font></b></td>
+=09=09</tr>
+=09=09<tr align=3D"right" bgcolor=3D"#ffffff" valign=3D"middle">
+=09=09=09<td align=3D"right" width=3D"65%"><b><font color=3D"#000000" size=
+=3D"2">Total Charge</font></b></td>
+=09=09=09<td nowrap=3D"nowrap" width=3D"12%"><b><font color=3D"#000000" siz=
+e=3D"2">GBP       </font></b></td>
+=09=09</tr>
+=09</tbody>
+</table>
+
+<table bgcolor=3D"#cccc99" border=3D"0" cellpadding=3D"2" cellspacing=3D"1"=
+ width=3D"550">
+=09<tbody>
+=09=09<tr>
+=09=09=09<td><b><font size=3D"2">Service Requests</font></b></td>
+=09=09</tr>
+=09=09<tr bgcolor=3D"#ffffff">
+=09=09=09<td valign=3D"top">
+=09=09=09<p><font color=3D"#000000"><span style=3D"font-family: Arial; font=
+-size: 8pt;">Service Request: N/A<o:p></o:p></span></font></p>
+=09=09=09</td>
+=09=09</tr>
+=09</tbody>
+</table>
+
+<p>=C2=A0</p>
+
+<table bgcolor=3D"#cccc99" border=3D"0" cellpadding=3D"2" cellspacing=3D"1"=
+ width=3D"550">
+=09<tbody>
+=09=09<tr>
+=09=09=09<td><b><font size=3D"2">Comments or Special Requests</font></b></t=
+d>
+=09=09</tr>
+=09=09<tr bgcolor=3D"#ffffff">
+=09=09=09<td valign=3D"top">
+=09=09=09<p><font color=3D"#000000"><span style=3D"font-family: Arial; font=
+-size: 8pt;">Morning<br />
+=09=09=09N/A<o:p></o:p></span></font></p>
+=09=09=09</td>
+=09=09</tr>
+=09</tbody>
+</table>
+
+<p>=C2=A0</p>
+
+<table bgcolor=3D"#cccc99" border=3D"0" cellpadding=3D"2" cellspacing=3D"1"=
+ width=3D"550">
+=09<tbody>
+=09=09<tr>
+=09=09=09<td colspan=3D"2"><b><font size=3D"2">Hotel Info</font></b></td>
+=09=09</tr>
+=09=09<tr bgcolor=3D"#ffffff">
+=09=09=09<td valign=3D"top">
+=09=09=09<table>
+=09=09=09=09<tbody>
+=09=09=09=09=09<tr>
+=09=09=09=09=09=09<td nowrap=3D"nowrap" valign=3D"top"><font size=3D"2"><b>=
+Hotel Description</b></font>
+=09=09=09=09=09=09<hr color=3D"#cccc99" size=3D"1" /> Rating:4 Star<br />
+=09=09=09=09=09=09Back Lane<BR>  Cambridge,Cambridgeshire CB23 6BW<BR>Unite=
+d Kingdom<br />
+=09=09=09=09=09=09Phone: 01954714600<br />
+=09=09=09=09=09=09Fax: 01132052898<br />
+=09=09=09=09=09=09<br />
+=09=09=09=09=09=09Checkin Time: 3 PM<br />
+=09=09=09=09=09=09Checkout Time: 11 AM<br />
+=09=09=09=09=09=09=C2=A0</td>
+=09=09=09=09=09=09<td width=3D"15">=C2=A0</td>
+=09=09=09=09=09=09<td valign=3D"top"><font size=3D"2"><b>Cambridge Belfry</=
+b></font>
+=09=09=09=09=09=09<hr color=3D"#cccc99" size=3D"1" />
+=09=09=09=09=09=09<table>
+=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09<tr valign=3D"top">
+=09=09=09=09=09=09=09=09=09<td> </td>
+=09=09=09=09=09=09=09=09=09<td><a>A four star purpose built hotel with stun=
+ning lakeside views on the outskirts of Cambridge, not far from main road a=
+nd rail routes.=C2=A0 With a convenient location close to both the M11 and =
+A1, as well as eight modern meeting rooms, this hotel is a popular destinat=
+ion for corporate events.</a></td>
+=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09</table>
+
+=09=09=09=09=09=09<p>Airport Direction<br />
+=09=09=09=09=09=09=C2=A0</p>
+
+=09=09=09=09=09=09<hr color=3D"#cccc99" size=3D"1" /> <a><UL><LI>STN London=
+ Stansted Airport, United Kingdom 58.0 Kilometers North </LI><LI>LTN London=
+ Luton 61.0 Kilometers North East </LI><LI>LHR London Heathrow Airport, Uni=
+ted Kingdom 108.0 Kilometers North </LI></UL></a>=C2=A0=C2=A0=C2=A0
+
+=09=09=09=09=09=09<p><a>The hotel is within close proximity to both the A1 =
+and M11 making it easily accessible for delegates traveling from afar. Foll=
+ow the A428 to Cambourne.=20
+<BR>
+<BR>Sat Nav Postcode: CB23 6BW</a></p>
+
+=09=09=09=09=09=09<p><a> </a></p>
+=09=09=09=09=09=09</td>
+=09=09=09=09=09</tr>
+=09=09=09=09</tbody>
+=09=09=09</table>
+=09=09=09</td>
+=09=09</tr>
+=09</tbody>
+</table>
+
+<p><span style=3D"font-family: Arial; font-size: 8pt;"><a> </a></span><span=
+ style=3D"font-size: 8pt;"><o:p></o:p></span></p>
+
+=09=09=09=09</td>
+=09=09=09</tr>
+=09=09=09<tr>
+=09=09=09=09<td>
+=09=09=09=09=09<table width=3D"650" cellpadding=3D"0" cellspacing=3D"0" bor=
+der=3D"0" align=3D"center" style=3D"margin:auto;background-color:#393539;pa=
+dding-top:20px;padding-bottom:20px;">
+=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09<td width=3D"245">=C2=A0</td>
+=09=09=09=09=09=09=09=09<td  width=3D"40" style=3D"text-align:center;">
+=09=09=09=09=09=09=09=09=09<a href=3D"https://www.facebook.com/CambridgeBel=
+fry">
+=09=09=09=09=09=09=09=09=09=09<img width=3D"20" src=3D"https://reservations=
+.ihotelier.com/crs/hotelimages/HTML_imgs/113767/fb.png" alt=3D"">
+=09=09=09=09=09=09=09=09=09</a>
+=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09<td  width=3D"40" style=3D"text-align:center;">
+=09=09=09=09=09=09=09=09=09<a href=3D"https://twitter.com/CambridgeBelfry">
+=09=09=09=09=09=09=09=09=09=09<img width=3D"20" src=3D"https://reservations=
+.ihotelier.com/crs/hotelimages/HTML_imgs/113767/tw.png" alt=3D"">
+=09=09=09=09=09=09=09=09=09</a>
+=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09<td width=3D"285">=C2=A0</td>
+=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09</tbody>
+=09=09=09=09=09</table>
+=09=09=09=09</td>
+=09=09=09</tr>
+=09=09=09<tr>
+=09=09=09=09<td style=3D"background-color:#393539;text-align:center;">
+=09=09=09=09=09<span style=3D"color:#ffffff;font-size:16px;">
+=09=09=09=09=09=09<a href=3D"https://www.thecambridgebelfry.co.uk/" style=
+=3D"color:#ffffff;text-decoration:none;font-weight:bold;text-transform:uppe=
+rcase;">Cambridge Belfry</a>
+=09=09=09=09=09</span>
+=09=09=09=09</td>
+=09=09=09</tr>
+=09=09=09<tr>
+=09=09=09=09<td style=3D"background-color:#393539;text-align:center;padding=
+-top:10px;padding-bottom:20px;">
+=09=09=09=09=09<span style=3D"color:#ffffff;font-size:14px;">
+=09=09=09=09=09=09=C2=A9 The Cambridge Belfry
+=09=09=09=09=09</span>
+=09=09=09=09</td>
+=09=09=09</tr>
+=09=09</tbody>
+=09</table><IMG SRC=3D'https://reservations.ihotelier.com/util/EmailConfirm=
+ation/PixTracking.cfm?qid=3D0'></body>
+</html><BR><FONT style=3D{font-size:8pt;font-family:Arial}>`Ref:688197428/1=
+735409998`</FONT>
+------=_Part_1248459_1955461274.1656681229663--

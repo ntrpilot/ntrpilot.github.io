@@ -1,0 +1,1335 @@
+Delivered-To: ntrpilot@gmail.com
+Received: by 2002:a05:6830:1de6:b0:616:b04e:fb55 with SMTP id b6csp1042177otj;
+        Fri, 1 Jul 2022 06:12:39 -0700 (PDT)
+X-Google-Smtp-Source: AGRyM1uzDRYE+bF8RiaWz4ENET5Nd3/Hh0JEpZ2jc+jtIVk3np7FKRkItnU5ku/fs8F5apJ6EJh4
+X-Received: by 2002:a5d:64ae:0:b0:21b:b923:7ad5 with SMTP id m14-20020a5d64ae000000b0021bb9237ad5mr13062120wrp.460.1656681159431;
+        Fri, 01 Jul 2022 06:12:39 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1656681159; cv=none;
+        d=google.com; s=arc-20160816;
+        b=AoXCf0mgzO9opp6I8zy7I56TOc5+o1+oL7fyt4FnMT2/p4TX7fXf9JykIOqwS0XiRQ
+         SScYq+cflkVtoqNdCHF84mxos3nvALR+QDjRXP29FYayl0XYfYCHn8l1qercohnn4PLV
+         /XQDzHkDS/JgtuaiUTC0179OUueqDb0j6jftTrruEbR9YTcLHZUtuSz6oZmqyq5aIfGw
+         fuhFP+t0O05ELHc4VMGHvUXiyLI+0hr2RpTgFRdcf8i8Dd0FrzDtv9QQJuLd8FdRF6nz
+         koZIoRD45ies8I+MpMPr2wowmh2ZD4Qm3JMDnF4OUXvZ5ecwn9GdCBtrg4vNedsVDOKI
+         IQRg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:date:mime-version:message-id:subject:to:from
+         :dkim-signature:dkim-signature;
+        bh=CN+ZGMvTeetYn7AUawe/ho8ScN1dSKe/z8NcAFty0Bw=;
+        b=aRR9v2WUUc13fAPjp87OkuNzLrush4FYC/E2A1Sxc3+Kfk7GFKshsPdjnMajv438JK
+         JTfk4jWYA2mTtK55ZrhPfwrFcpg4R/+bCxvj7DYWvTIHGvmTyNJ4860eH865eE/Ev9Sm
+         hDdjSq9ahvTqKWHwF6SeKzVWmvHbPuO1j2HHgufiph78pTqW4HOmN/2VgOdu+KXovTSE
+         +xeXkdgdJgXNWUOZShoBsPFdwVPkQq2bHbquTT5mhkgjhlHrz4z7qisLiwIYzHgD6x7v
+         +1sT3iVY1fdwZZX/x9Zbbc0O2tVIcckpNjOwFG37LoKToqzaanlQSfuBtKOVV8imCRUK
+         7i1g==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@thecambridgebelfry.co.uk header.s=sug6rtkef2kczkxc2ihfvlkgsepaqnw3 header.b=GjpvG0+X;
+       dkim=pass header.i=@amazonses.com header.s=ihchhvubuqgjsxyuhssfvqohv7z3u4hn header.b=bHzxHnVa;
+       spf=pass (google.com: domain of 01020181b9e456da-a2b91da8-b069-4c49-aee2-5498279a26d2-000000@eu-west-1.amazonses.com designates 54.240.4.22 as permitted sender) smtp.mailfrom=01020181b9e456da-a2b91da8-b069-4c49-aee2-5498279a26d2-000000@eu-west-1.amazonses.com
+Return-Path: <01020181b9e456da-a2b91da8-b069-4c49-aee2-5498279a26d2-000000@eu-west-1.amazonses.com>
+Received: from a4-22.smtp-out.eu-west-1.amazonses.com (a4-22.smtp-out.eu-west-1.amazonses.com. [54.240.4.22])
+        by mx.google.com with ESMTPS id r3-20020adfda43000000b0020fc3d4530asi28424033wrl.479.2022.07.01.06.12.38
+        for <ntrpilot@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 01 Jul 2022 06:12:39 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 01020181b9e456da-a2b91da8-b069-4c49-aee2-5498279a26d2-000000@eu-west-1.amazonses.com designates 54.240.4.22 as permitted sender) client-ip=54.240.4.22;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@thecambridgebelfry.co.uk header.s=sug6rtkef2kczkxc2ihfvlkgsepaqnw3 header.b=GjpvG0+X;
+       dkim=pass header.i=@amazonses.com header.s=ihchhvubuqgjsxyuhssfvqohv7z3u4hn header.b=bHzxHnVa;
+       spf=pass (google.com: domain of 01020181b9e456da-a2b91da8-b069-4c49-aee2-5498279a26d2-000000@eu-west-1.amazonses.com designates 54.240.4.22 as permitted sender) smtp.mailfrom=01020181b9e456da-a2b91da8-b069-4c49-aee2-5498279a26d2-000000@eu-west-1.amazonses.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=sug6rtkef2kczkxc2ihfvlkgsepaqnw3; d=thecambridgebelfry.co.uk;
+	t=1656681158;
+	h=From:To:Subject:Message-ID:MIME-Version:Date:Content-Type;
+	bh=uCvUX+INERZ7uVAj650fQomAF961ZxcmOPzMHNU3fd8=;
+	b=GjpvG0+XZWHUCJp9SdBDGfdJsZk4MXf/s5+cqZowwjYcaHLDyGqaorrhjjM/75zD
+	wWGb6rd2WYVkMQrZDA/dhorwd7qlwINZJfC10byrGJyvy6Kkf/z59PcRNNbcfYSZ8GO
+	H8G5sFOiqXnQyv10fNgCBn4ZizQxwGKxZEK/OVlk6dmqXYm1J2g+HTtBfxQevVB2fB0
+	NO8td3hGixYXQx6/LlXxHK7lTb3JKS0WQf0JUhTiY02iYQv+GtJgeN0sh5ist/u7oIN
+	88i3vnxLcYPU76uuT6NAgegZ+mzmyXBWJ5YvO9mRy2yDP108FOkdNSPtiqYj+hd1UEQ
+	B6x3Lz/vZQ==
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=ihchhvubuqgjsxyuhssfvqohv7z3u4hn; d=amazonses.com; t=1656681158;
+	h=From:To:Subject:Message-ID:MIME-Version:Date:Content-Type:Feedback-ID;
+	bh=uCvUX+INERZ7uVAj650fQomAF961ZxcmOPzMHNU3fd8=;
+	b=bHzxHnVacFPEV304880j24P+x2b54Gf2jrVMKpo0MHyQEojtQNSeT6bc6ZgomNjx
+	6fIhP3JSJ9kGEHMJPwX9sn4729DoeTGRCiOyBoA21va90GAxPWcuz4bjDazbL+235qJ
+	1J6QSLar6djyAFQR3y52hSwpQL8kDNJ9MKmg6Mm0=
+From: Cambridge Belfry <spabooking@thecambridgebelfry.co.uk>
+To: Amber Hepburn-Taylor <ntrpilot@gmail.com>
+Subject: Your booking confirmation at Cambridge Belfry
+Message-ID: <01020181b9e456da-a2b91da8-b069-4c49-aee2-5498279a26d2-000000@eu-west-1.amazonses.com>
+MIME-Version: 1.0
+Date: Fri, 1 Jul 2022 13:12:38 +0000
+Content-Type: multipart/alternative; boundary=93QQI-8f
+Feedback-ID: 1.eu-west-1.KJ0WiC4DTRCTcs1yBOWHiRMrrHCSwjkMj9kf7kFHjz0=:AmazonSES
+X-SES-Outgoing: 2022.07.01-54.240.4.22
+
+--93QQI-8f
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Dear Amber
+
+Thank you for your booking. We look forward to welcoming yo=
+u to The Spa at Cambridge Belfry.
+
+Please find a summary of your bookin=
+g details below:
+
+Date: 08 July, 2022
+Guests: 1
+Reservation ID: 217=
+3145
+
+Amber Hepburn-Taylor:
+ - ELEMIS Relaxing face & back ritual (50=
+mins): 3:30pm
+
+To access all the information you need to know prior to =
+your arrival, please visit our website at https://www.thecambridgebelfry.co=
+.uk/spa-health-club/spa/important-information-for-your-spa-booking/
+
+An=
+y cancellations under 48 hours will incur a 100% charge. Any bookings made =
+under 48 hours will be charged and non-refundable.
+
+If you have any upc=
+oming enquiries about your booking, please contact our friendly team on the=
+ number below. Otherwise, we very much look forward to welcoming you for a =
+day of pampering and pure relaxation.
+
+With best wishes,
+Cambridge Be=
+lfry
+Back Ln, Cambourne, Cambridge CB23 6BW
+Tel: 01954 714600
+https:/=
+/www.thecambridgebelfry.co.uk
+
+--93QQI-8f
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html lang=3D"en">
+=
+
+    <head>
+
+        <meta http-equiv=3D"content-Type" content=3D"tex=
+t/html; charset=3Dutf-8" />
+        <meta name=3D"viewport" content=3D"wi=
+dth=3Ddevice-width, initial-scale=3D1.0, user-scalable=3Dno" />
+
+      =
+  <title>Thank you for your Booking</title>
+
+        <style>
+
+     =
+       /* COPY */
+
+            .copy p {
+                color: #0000=
+00;
+                font-family: Verdana, Geneva, sans-serif;
+         =
+       font-size: 16px;
+                line-height: 20px;
+            =
+    margin: 0 0 20px;
+            }
+
+            /* MEDIA QUERIES */=
+
+
+            @media only screen and (max-width: 700px) {
+
+        =
+        /* LAYOUT */
+
+                .mq-block-full { width: 100% !imp=
+ortant; }
+
+                .mq-height { height: auto !important; }
+=
+
+                .mq-hide { display: none !important; }
+
+            =
+    .mq-img-full {
+                    height: auto !important;
+       =
+             width: 100% !important;
+                }
+
+             =
+   .mq-wrap {
+                    min-width: 320px !important;
+        =
+            width: 100% !important;
+                }
+
+            }=
+
+
+        </style>
+
+    </head>
+
+    <body bgcolor=3D"#ffffff" =
+style=3D"margin: 0; padding: 0; text-size-adjust: none; -webkit-text-size-a=
+djust: none; -moz-text-size-adjust: none; -ms-text-size-adjust: none;">
+=
+
+        <div style=3D"color: #ffffff; display: none; font-size: 1px; lin=
+e-height: 1px; max-height: 0; max-width: 0; mso-hide: all; opacity: 0; over=
+flow: hidden;">
+            Thank you for booking your spa visit. I am de=
+lighted to confirm your details below:
+        </div>
+
+        <table=
+ role=3D"presentation" width=3D"100%" bgcolor=3D"#ffffff" border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0">
+            <tr>
+                <td a=
+lign=3D"center">
+                    <table role=3D"presentation" width=
+=3D"700" align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+class=3D"mq-wrap" style=3D"min-width: 700px;">
+                        <t=
+head>
+                            <tr>
+                                =
+<td>
+                                    <table role=3D"presentation" wid=
+th=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0">
+           =
+                             <tr>
+                                       =
+     <td align=3D"center" style=3D"padding: 20px;">
+                     =
+                           <table role=3D"presentation" width=3D"147" align=
+=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"max-w=
+idth: 147px;">
+                                                    <tr>=
+
+                                                        <td>
+         =
+                                                   <a href=3D"https://www.t=
+hecambridgebelfry.co.uk">
+                                               =
+                 <img src=3D"https://book.thecambridgebelfry.co.uk/uploads/=
+img/cambridge-belfry/cambridge-logo.png" alt=3D"Cambridge Belfry" border=3D=
+"0" height=3D"73" width=3D"147" class=3D"mq-img-full" style=3D"display: blo=
+ck;" />
+                                                            </a>=
+
+                                                        </td>
+        =
+                                            </tr>
+                       =
+                         </table>
+                                       =
+     </td>
+                                        </tr>
+              =
+                      </table>
+                                </td>
+  =
+                          </tr>
+                            <tr>
+      =
+                          <td>
+                                    <table=
+ role=3D"presentation" width=3D"100%" border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0">
+                                        <tr>
+             =
+                               <td style=3D"padding-bottom: 20px;">
+     =
+                                           <img src=3D"https://book.thecamb=
+ridgebelfry.co.uk/uploads/img/cambridge-belfry/spa-mailer-header.jpg" alt=
+=3D"Cambridge Belfry" height=3D"242" width=3D"700" class=3D"mq-img-full" st=
+yle=3D"display: block;" />
+                                            </=
+td>
+                                        </tr>
+                     =
+               </table>
+                                </td>
+         =
+                   </tr>
+                        </thead>
+
+          =
+              <tr>
+                            <td>
+                   =
+             <table role=3D"presentation" width=3D"100%" border=3D"0" cellp=
+adding=3D"0" cellspacing=3D"0">
+                                    <tr>=
+
+                                        <td align=3D"center">
+        =
+                                    <table role=3D"presentation" width=3D"6=
+20" align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=
+=3D"mq-block-full" style=3D"max-width: 620px;">
+                         =
+                       <tr>
+                                             =
+       <td>
+                                                        <tabl=
+e role=3D"presentation" width=3D"100%" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0">
+                                                           =
+ <tr>
+                                                                <td=
+ align=3D"left" style=3D"padding-right: 20px; padding-bottom: 20px; padding=
+-left: 20px;">
+                                                          =
+          <h1 style=3D"color: #535659; font-family: 'Times New Roman', Time=
+s, serif; font-size: 28px; font-weight: 400; line-height: 34px; margin: 0 0=
+ 40px;">
+                                                                =
+        Thank you for your Booking
+                                      =
+                              </h1>
+
+                                  =
+                                  <p style=3D"color: #000000; font-family: =
+Verdana, Geneva, sans-serif; font-size: 16px; line-height: 20px; margin: 0 =
+0 20px;">
+                                                               =
+         Dear Amber,
+                                                    =
+                </p>
+
+                                                 =
+                   <p style=3D"color: #000000; font-family: Verdana, Geneva=
+, sans-serif; font-size: 16px; line-height: 20px; margin: 0 0 20px;">
+   =
+                                                                     Thank =
+you for your booking. We look forward to welcoming you to The Spa at Cambri=
+dge Belfry.
+                                                             =
+       </p>
+
+                                                          =
+          <p style=3D"color: #000000; font-family: Verdana, Geneva, sans-se=
+rif; font-size: 16px; line-height: 20px; margin: 0 0 20px;">
+            =
+                                                            Please find a s=
+ummary of your booking details below:
+                                   =
+                                 </p>
+                                   =
+                             </td>
+                                      =
+                      </tr>
+                                             =
+           </table>
+                                                    <=
+/td>
+                                                </tr>
+            =
+                                    <tr>
+                                =
+                    <td>
+                                                =
+        <table role=3D"presentation" width=3D"100%" border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0">
+                                              =
+              <tr>
+                                                      =
+          <td style=3D"padding-right: 20px; padding-bottom: 40px; padding-l=
+eft: 20px;">
+                                                            =
+        <table role=3D"presentation" width=3D"100%" border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0">
+                                              =
+                          <tr>
+                                          =
+                                  <td bgcolor=3D"#f5f5f5" style=3D"border-b=
+ottom: #ffffff solid 2px;">
+                                             =
+                                   <table role=3D"presentation" width=3D"10=
+0%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0">
+                   =
+                                                                 <tr>
+   =
+                                                                           =
+          <td style=3D"padding: 20px 10px 10px;">
+                       =
+                                                                     <table=
+ role=3D"presentation" width=3D"100%" border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0">
+                                                            =
+                                    <tr>
+                                =
+                                                                    <td val=
+ign=3D"top">
+                                                            =
+                                            <table role=3D"presentation" wi=
+dth=3D"280" align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ class=3D"mq-block-full">
+                                               =
+                                                             <tr>
+       =
+                                                                           =
+                              <td align=3D"left" style=3D"padding-right: 10=
+px; padding-bottom: 10px; padding-left: 10px;">
+                         =
+                                                                           =
+                <h2 style=3D"font-family: 'Times New Roman', Times, serif; =
+font-size: 16px; font-weight: 400; line-height: 20px; margin: 0;">
+      =
+                                                                           =
+                                       Date
+                             =
+                                                                           =
+            </h2>
+                                                       =
+                                                         </td>
+          =
+                                                                           =
+                       </tr>
+                                            =
+                                                            </table>
+    =
+                                                                           =
+                     <!--[if (gte mso 9)|(IE)]>
+                         =
+                                                                           =
+</td>
+                                                                   =
+                                 <td width=3D"280" valign=3D"top">
+      =
+                                                                           =
+                   <![endif]-->
+                                         =
+                                                               <table role=
+=3D"presentation" width=3D"280" align=3D"left" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" class=3D"mq-block-full">
+                           =
+                                                                           =
+      <tr>
+                                                              =
+                                                  <td style=3D"padding-righ=
+t: 10px; padding-bottom: 10px; padding-left: 10px;">
+                    =
+                                                                           =
+                     <table role=3D"presentation" width=3D"100%" border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0">
+                                 =
+                                                                           =
+            <tr>
+                                                        =
+                                                                    <td hei=
+ght=3D"20" align=3D"left" valign=3D"middle" class=3D"mq-height">
+        =
+                                                                           =
+                                             <p style=3D"color: #000000; fo=
+nt-family: Verdana, Geneva, sans-serif; font-size: 14px; line-height: 18px;=
+ margin: 0;">
+                                                           =
+                                                                         08=
+ July, 2022
+                                                             =
+                                                                   </p>
+ =
+                                                                           =
+                                                </td>
+                   =
+                                                                           =
+                          </tr>
+                                         =
+                                                                           =
+</table>
+                                                                =
+                                                </td>
+                   =
+                                                                           =
+              </tr>
+                                                     =
+                                                   </table>
+             =
+                                                                           =
+            </td>
+                                                       =
+                                         </tr>
+                          =
+                                                                  </table>=
+
+                                                                        =
+                </td>
+                                                   =
+                                 </tr>
+                                  =
+                                              </table>
+                  =
+                                                          </td>
+         =
+                                                               </tr>
+    =
+                                                                    <tr>
+=
+                                                                           =
+ <td bgcolor=3D"#f5f5f5" style=3D"border-bottom: #ffffff solid 2px;">
+   =
+                                                                           =
+  <table role=3D"presentation" width=3D"100%" border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0">
+                                                    =
+                                <tr>
+                                    =
+                                                    <td style=3D"padding: 2=
+0px 10px 10px;">
+                                                        =
+                                    <table role=3D"presentation" width=3D"1=
+00%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0">
+                  =
+                                                                           =
+   <tr>
+                                                                 =
+                                   <td valign=3D"top">
+                  =
+                                                                           =
+           <table role=3D"presentation" width=3D"280" align=3D"left" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"mq-block-full">
+     =
+                                                                           =
+                            <tr>
+                                        =
+                                                                        <td=
+ align=3D"left" style=3D"padding-right: 10px; padding-bottom: 10px; padding=
+-left: 10px;">
+                                                          =
+                                                          <h2 style=3D"font=
+-family: 'Times New Roman', Times, serif; font-size: 16px; font-weight: 400=
+; line-height: 20px; margin: 0;">
+                                       =
+                                                                           =
+      Guests
+                                                            =
+                                                        </h2>
+           =
+                                                                           =
+                          </td>
+                                         =
+                                                                   </tr>
+=
+                                                                           =
+                             </table>
+                                   =
+                                                                     <!--[i=
+f (gte mso 9)|(IE)]>
+                                                    =
+                                                    </td>
+               =
+                                                                           =
+              <td width=3D"280" valign=3D"top">
+                         =
+                                                                           =
+    <![endif]-->
+                                                        =
+                                                <table role=3D"presentation=
+" width=3D"280" align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" class=3D"mq-block-full">
+                                         =
+                                                                   <tr>
+ =
+                                                                           =
+                                    <td style=3D"padding-right: 10px; paddi=
+ng-bottom: 10px; padding-left: 10px;">
+                                  =
+                                                                           =
+       <table role=3D"presentation" width=3D"100%" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0">
+                                               =
+                                                                         <t=
+r>
+                                                                      =
+                                                      <td height=3D"20" ali=
+gn=3D"left" valign=3D"middle" class=3D"mq-height">
+                      =
+                                                                           =
+                               <p style=3D"color: #000000; font-family: Ver=
+dana, Geneva, sans-serif; font-size: 14px; line-height: 18px; margin: 0;">=
+
+                                                                        =
+                                                            1
+           =
+                                                                           =
+                                          </p>
+                          =
+                                                                           =
+                       </td>
+                                            =
+                                                                           =
+ </tr>
+                                                                  =
+                                                  </table>
+              =
+                                                                           =
+                       </td>
+                                            =
+                                                                </tr>
+   =
+                                                                           =
+                          </table>
+                                      =
+                                                              </td>
+     =
+                                                                           =
+                </tr>
+                                                   =
+                                         </table>
+                       =
+                                                                 </td>
+  =
+                                                                           =
+       </tr>
+                                                            =
+                    </table>
+                                            =
+                                </td>
+                                   =
+                                     </tr>
+                              =
+                                          <tr>
+                          =
+                                                  <td bgcolor=3D"#f5f5f5" s=
+tyle=3D"border-bottom: #ffffff solid 2px;">
+                             =
+                                                   <table role=3D"presentat=
+ion" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0">
+   =
+                                                                           =
+      <tr>
+                                                              =
+                          <td style=3D"padding: 20px 10px 10px;">
+       =
+                                                                           =
+          <table role=3D"presentation" width=3D"100%" border=3D"0" cellpadd=
+ing=3D"0" cellspacing=3D"0">
+                                            =
+                                                    <tr>
+                =
+                                                                           =
+         <td valign=3D"top">
+                                            =
+                                                            <table role=3D"=
+presentation" width=3D"280" align=3D"left" border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" class=3D"mq-block-full">
+                               =
+                                                                           =
+  <tr>
+                                                                  =
+                                              <td align=3D"left" style=3D"p=
+adding-right: 10px; padding-bottom: 10px; padding-left: 10px;">
+         =
+                                                                           =
+                                <h2 style=3D"font-family: 'Times New Roman'=
+, Times, serif; font-size: 16px; font-weight: 400; line-height: 20px; margi=
+n: 0;">
+                                                                 =
+                                                       Reservation ID
+   =
+                                                                           =
+                                      </h2>
+                             =
+                                                                           =
+        </td>
+                                                           =
+                                                 </tr>
+                  =
+                                                                           =
+           </table>
+                                                     =
+                                                   <!--[if (gte mso 9)|(IE)=
+]>
+                                                                      =
+                                  </td>
+                                 =
+                                                                       <td =
+width=3D"280" valign=3D"top">
+                                           =
+                                                             <![endif]-->=
+
+                                                                        =
+                                <table role=3D"presentation" width=3D"280" =
+align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"mq=
+-block-full">
+                                                           =
+                                                 <tr>
+                   =
+                                                                           =
+                  <td style=3D"padding-right: 10px; padding-bottom: 10px; p=
+adding-left: 10px;">
+                                                    =
+                                                                <table role=
+=3D"presentation" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0">
+                                                                 =
+                                                       <tr>
+             =
+                                                                           =
+                                    <td height=3D"20" align=3D"left" valign=
+=3D"middle" class=3D"mq-height">
+                                        =
+                                                                           =
+             <p style=3D"color: #000000; font-family: Verdana, Geneva, sans=
+-serif; font-size: 14px; line-height: 18px; margin: 0;">
+                =
+                                                                           =
+                                         2173145
+                        =
+                                                                           =
+                             </p>
+                                       =
+                                                                           =
+          </td>
+                                                         =
+                                                               </tr>
+    =
+                                                                           =
+                                     </table>
+                           =
+                                                                           =
+          </td>
+                                                         =
+                                                   </tr>
+                =
+                                                                           =
+             </table>
+                                                   =
+                                                 </td>
+                  =
+                                                                           =
+   </tr>
+                                                                =
+                            </table>
+                                    =
+                                                    </td>
+               =
+                                                                     </tr>=
+
+                                                                        =
+        </table>
+                                                        =
+                    </td>
+                                               =
+                         </tr>
+                                          =
+                                                                           =
+                                                                           =
+                        <tr class=3D"mq-hide">
+                          =
+                                                  <td style=3D"padding-bott=
+om: 2px;">
+                                                              =
+                  <table role=3D"presentation" width=3D"100%" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0">
+                                    =
+                                                <tr>
+                    =
+                                                                    <td sty=
+le=3D"border: #f5f5f5 solid 1px; padding: 20px 9px;">
+                   =
+                                                                         <t=
+able role=3D"presentation" width=3D"100%" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0">
+                                                        =
+                                        <tr>
+                            =
+                                                                        <td=
+>
+                                                                       =
+                                 <table role=3D"presentation" width=3D"100%=
+" border=3D"0" cellpadding=3D"0" cellspacing=3D"0">
+                     =
+                                                                           =
+            <tr>
+                                                        =
+                                                        <td align=3D"center=
+" style=3D"padding-right: 10px; padding-bottom: 20px; padding-left: 10px;">=
+
+                                                                        =
+                                            <h2 style=3D"color: #000000; fo=
+nt-family: 'Times New Roman', Times, serif; font-size: 21px; font-weight: 4=
+00; line-height: 26px; margin: 0;">
+                                     =
+                                                                           =
+        Amber Hepburn-Taylor
+                                            =
+                                                                        </h=
+2>
+                                                                      =
+                                          </td>
+                         =
+                                                                           =
+        </tr>
+                                                           =
+                                             </table>
+                   =
+                                                                           =
+      </td>
+                                                             =
+                                   </tr>
+                                =
+                                                                <tr>
+    =
+                                                                           =
+                     <td>
+                                               =
+                                                         <table role=3D"pre=
+sentation" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0">=
+
+                                                                        =
+                                    <tr>
+                                =
+                                                                           =
+     <td width=3D"420">
+                                                 =
+                                                                   <table r=
+ole=3D"presentation" width=3D"420" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0">
+                                                               =
+                                                         <tr>
+           =
+                                                                           =
+                                      <td align=3D"left" style=3D"padding-r=
+ight: 10px; padding-left: 10px;">
+                                       =
+                                                                           =
+              <div style=3D"color: #707070; font-family: 'Times New Roman',=
+ Times, serif; font-size: 16px; line-height: 20px;">
+                    =
+                                                                           =
+                                     Selected Treatments
+                =
+                                                                           =
+                                     </div>
+                             =
+                                                                           =
+                    </td>
+                                               =
+                                                                         </=
+tr>
+                                                                     =
+                                               </table>
+                 =
+                                                                           =
+                    </td>
+                                               =
+                                                                 <td width=
+=3D"140">
+                                                               =
+                                                     <table role=3D"present=
+ation" width=3D"140" border=3D"0" cellpadding=3D"0" cellspacing=3D"0">
+  =
+                                                                           =
+                                           <tr>
+                         =
+                                                                           =
+                        <td align=3D"left" style=3D"padding-right: 10px; pa=
+dding-left: 10px;">
+                                                     =
+                                                                           =
+<div style=3D"color: #707070; font-family: 'Times New Roman', Times, serif;=
+ font-size: 16px; line-height: 20px;">
+                                  =
+                                                                           =
+                       Time
+                                             =
+                                                                           =
+        </div>
+                                                          =
+                                                                  </td>
+ =
+                                                                           =
+                                            </tr>
+                       =
+                                                                           =
+                  </table>
+                                              =
+                                                                  </td>
+ =
+                                                                           =
+                                </tr>
+                                   =
+                                                                     </tabl=
+e>
+                                                                      =
+                              </td>
+                                     =
+                                                           </tr>
+        =
+                                                                           =
+         </table>
+                                                       =
+                                 </td>
+                                  =
+                                                  </tr>
+                 =
+                                                               </table>
+ =
+                                                                           =
+</td>
+                                                                   =
+     </tr>
+                                                              =
+                                                                           =
+                                                                           =
+            <tr>
+                                                        =
+                    <td bgcolor=3D"#f5f5f5" style=3D"border-bottom: #ffffff=
+ solid 2px;">
+                                                           =
+                     <table role=3D"presentation" width=3D"100%" border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0">
+                                 =
+                                                   <tr>
+                 =
+                                                                       <td =
+style=3D"padding: 20px 10px 10px;">
+                                     =
+                                                       <table role=3D"prese=
+ntation" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0">=
+
+                                                                        =
+                        <tr>
+                                            =
+                                                        <td valign=3D"top">=
+
+                                                                        =
+                                <table role=3D"presentation" width=3D"420" =
+align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"mq=
+-block-full">
+                                                           =
+                                                 <tr>
+                   =
+                                                                           =
+                  <td align=3D"left" style=3D"padding-right: 10px; padding-=
+bottom: 10px; padding-left: 10px;">
+                                     =
+                                                                           =
+    <h3 style=3D"font-family: 'Times New Roman', Times, serif; font-size: 1=
+6px; font-weight: 400; line-height: 20px; margin: 0;">
+                  =
+                                                                           =
+                           ELEMIS Relaxing face &amp; back ritual (50mins)=
+
+                                                                        =
+                                            </h3>
+                       =
+                                                                           =
+              </td>
+                                                     =
+                                                       </tr>
+            =
+                                                                           =
+                 </table>
+                                               =
+                                                     <!--[if (gte mso 9)|(I=
+E)]>
+                                                                    =
+                                </td>
+                                   =
+                                                                 <td width=
+=3D"140" valign=3D"top">
+                                                =
+                                                    <![endif]-->
+        =
+                                                                           =
+                     <table role=3D"presentation" width=3D"140" align=3D"le=
+ft" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"mq-block-full=
+">
+                                                                      =
+                                      <tr>
+                              =
+                                                                           =
+       <td style=3D"padding-right: 10px; padding-bottom: 10px; padding-left=
+: 10px;">
+                                                               =
+                                                     <table role=3D"present=
+ation" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0">
+ =
+                                                                           =
+                                            <tr>
+                        =
+                                                                           =
+                         <td height=3D"20" align=3D"left" valign=3D"middle"=
+ class=3D"mq-height">
+                                                   =
+                                                                           =
+  <p style=3D"color: #000000; font-family: Verdana, Geneva, sans-serif; fon=
+t-size: 14px; line-height: 18px; margin: 0;">
+                           =
+                                                                           =
+                              3:30pm
+                                    =
+                                                                           =
+                 </p>
+                                                   =
+                                                                         </=
+td>
+                                                                     =
+                                                   </tr>
+                =
+                                                                           =
+                         </table>
+                                       =
+                                                                         </=
+td>
+                                                                     =
+                                       </tr>
+                            =
+                                                                           =
+ </table>
+                                                               =
+                                     </td>
+                              =
+                                                                  </tr>
+ =
+                                                                           =
+                </table>
+                                                =
+                                        </td>
+                           =
+                                                         </tr>
+          =
+                                                                      </tab=
+le>
+                                                                     =
+       </td>
+                                                            =
+            </tr>
+                                                       =
+                                                                           =
+             =20
+                                                          =
+                 =20
+                                                      =
+                                                                           =
+           </table>
+                                                     =
+           </td>
+                                                        =
+    </tr>
+                                                        </table=
+>
+                                                    </td>
+           =
+                                     </tr>
+                              =
+                  <tr>
+                                                  =
+  <td>
+                                                        <table rol=
+e=3D"presentation" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0">
+                                                            <tr>=
+
+                                                                <td alig=
+n=3D"left" style=3D"padding-right: 20px; padding-bottom: 50px; padding-left=
+: 20px;">
+                                                               =
+     <p style=3D"color: #000000; font-family: Verdana, Geneva, sans-serif; =
+font-size: 16px; line-height: 20px; margin: 0 0 20px;">
+                 =
+                                                       To access all the in=
+formation you need to know prior to your arrival, please visit our website =
+<a href=3D"https://www.thecambridgebelfry.co.uk/spa-health-club/spa/importa=
+nt-information-for-your-spa-booking/" style=3D"color: #535659; text-decorat=
+ion: underline;">here</a>.
+                                              =
+                      </p>
+
+                                           =
+                         <p style=3D"color: #000000; font-family: Verdana, =
+Geneva, sans-serif; font-size: 16px; line-height: 20px; margin: 0 0 20px;">=
+
+                                                                        =
+Any cancellations under 48 hours will incur a 100% charge. Any bookings mad=
+e under 48 hours will be charged and non-refundable.
+                    =
+                                                </p>
+
+                 =
+                                                   <p style=3D"color: #0000=
+00; font-family: Verdana, Geneva, sans-serif; font-size: 16px; line-height:=
+ 20px; margin: 0 0 40px;">
+                                              =
+                          If you have any upcoming enquiries about your boo=
+king, please contact our friendly team on the number below. Otherwise, we v=
+ery much look forward to welcoming you for a day of pampering and pure rela=
+xation.
+                                                                 =
+   </p>
+
+                                                              =
+      <p style=3D"color: #000000; font-family: Verdana, Geneva, sans-serif;=
+ font-size: 16px; line-height: 20px; margin: 0 0 20px;">
+                =
+                                                        With best wishes,=
+
+                                                                    </p>=
+
+
+                                                                    <=
+p style=3D"color: #000000; font-family: Verdana, Geneva, sans-serif; font-s=
+ize: 16px; line-height: 20px; margin: 0 0 20px;">
+                       =
+                                                 Cambridge Belfry<br />
+ =
+                                                                       Back=
+ Ln, Cambourne, Cambridge CB23 6BW<br />
+                                =
+                                        Tel: <a href=3D"tel:01954 714600" s=
+tyle=3D"color: #535659; text-decoration: underline;">01954 714600</a><br />=
+
+                                                                        =
+<a href=3D"https://www.thecambridgebelfry.co.uk" style=3D"color: #535659; t=
+ext-decoration: underline;">https://www.thecambridgebelfry.co.uk</a>
+    =
+                                                                </p>
+    =
+                                                            </td>
+       =
+                                                     </tr>
+              =
+                                          </table>
+                      =
+                              </td>
+                                     =
+           </tr>
+                                            </table>
+ =
+                                       </td>
+                            =
+        </tr>
+                                </table>
+                =
+            </td>
+                        </tr>
+
+                    =
+    <tfoot>
+                            <tr>
+                          =
+      <td>
+                                    <table role=3D"presentatio=
+n" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0">
+     =
+                                   <tr class=3D"mq-hide">
+               =
+                             <td>
+                                       =
+         <table role=3D"presentation" width=3D"100%" border=3D"0" cellpaddi=
+ng=3D"0" cellspacing=3D"0">
+                                             =
+       <tr>
+                                                        <td s=
+tyle=3D"padding-right: 20px; padding-bottom: 30px; padding-left: 20px;">
+=
+                                                            <table role=3D"=
+presentation" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0">
+                                                                <tr>=
+
+                                                                    <td =
+height=3D"1" bgcolor=3D"#acacac" style=3D"height: 1px; line-height: 1px;"><=
+/td>
+                                                                </tr=
+>
+                                                            </table>
+=
+                                                        </td>
+           =
+                                         </tr>
+                          =
+                      </table>
+                                          =
+  </td>
+                                        </tr>
+                 =
+                       <tr class=3D"mq-hide">
+                           =
+                 <td>
+                                                <ta=
+ble role=3D"presentation" width=3D"100%" border=3D"0" cellpadding=3D"0" cel=
+lspacing=3D"0">
+                                                    <tr>=
+
+                                                        <td align=3D"cen=
+ter" style=3D"padding-right: 20px; padding-bottom: 30px; padding-left: 20px=
+;">
+                                                            <table ro=
+le=3D"presentation" width=3D"147" align=3D"center" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" style=3D"max-width: 147px;">
+                   =
+                                             <tr>
+                       =
+                                             <td>
+                       =
+                                                 <a href=3D"https://www.the=
+cambridgebelfry.co.uk">
+                                                 =
+                           <img src=3D"https://book.thecambridgebelfry.co.u=
+k/uploads/img/cambridge-belfry/cambridge-logo.png" alt=3D"Cambridge Belfry"=
+ border=3D"0" height=3D"73" width=3D"147" class=3D"mq-img-full" style=3D"di=
+splay: block;" />
+                                                       =
+                 </a>
+                                                   =
+                 </td>
+                                                  =
+              </tr>
+                                                     =
+       </table>
+                                                        <=
+/td>
+                                                    </tr>
+        =
+                                        </table>
+                        =
+                    </td>
+                                        </tr>=
+
+                                        <tr class=3D"mq-hide">
+       =
+                                     <td>
+                               =
+                 <table role=3D"presentation" width=3D"100%" border=3D"0" c=
+ellpadding=3D"0" cellspacing=3D"0">
+                                     =
+               <tr>
+                                                     =
+   <td align=3D"center" style=3D"padding-right: 20px; padding-bottom: 30px;=
+ padding-left: 20px;">
+                                                  =
+          <div style=3D"color: #000000; font-family: Verdana, Geneva, sans-=
+serif; font-size: 10px; line-height: 12px;">
+                            =
+                                                                           =
+                             <a href=3D"https://www.qhotels.co.uk/customer-=
+privacy-policy" style=3D"color: #000000; text-decoration: none;">Privacy Po=
+licy</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                     =
+                                                                           =
+                    <a href=3D"https://www.qhotels.co.uk/privacy-cookies/" =
+style=3D"color: #000000; text-decoration: none;">Privacy &amp; Cookies</a>&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                              =
+                                                                           =
+           <a href=3D"https://www.thecambridgebelfry.co.uk/terms-conditions=
+" style=3D"color: #000000; text-decoration: none;">Terms &amp; Conditions</=
+a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                           =
+                                                                           =
+              <a href=3D"https://www.thecambridgebelfry.co.uk/contact-us" s=
+tyle=3D"color: #000000; text-decoration: none;">Contact Us</a>&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;                                                          =
+                                                                          <=
+a href=3D"https://www.thecambridgebelfry.co.uk/spa-health-club/health-club"=
+ style=3D"color: #000000; text-decoration: none;">Health Club</a>&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;                                                       =
+                                                                           =
+  <a href=3D"https://www.thecambridgebelfry.co.uk/spa-health-club/spa" styl=
+e=3D"color: #000000; text-decoration: none;">Spa</a>&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;                                                                    =
+                                                                <a href=3D"=
+https://www.thecambridgebelfry.co.uk/gift-vouchers" style=3D"color: #000000=
+; text-decoration: none;">Gift Vouchers</a>                                =
+                                                                           =
+                 </div>
+                                                 =
+       </td>
+                                                    </tr>
+=
+                                                </table>
+                =
+                            </td>
+                                       =
+ </tr>
+                                        <tr>
+                   =
+                         <td>
+                                           =
+     <table role=3D"presentation" width=3D"100%" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0">
+                                               =
+     <tr>
+                                                        <td sty=
+le=3D"padding-right: 20px; padding-bottom: 10px; padding-left: 20px;">
+  =
+                                                          <table role=3D"pr=
+esentation" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+>
+                                                                <tr>
+=
+                                                                    <td hei=
+ght=3D"1" bgcolor=3D"#acacac" style=3D"height: 1px; line-height: 1px;"></td=
+>
+                                                                </tr>=
+
+                                                            </table>
+ =
+                                                       </td>
+            =
+                                        </tr>
+                           =
+                     </table>
+                                           =
+ </td>
+                                        </tr>
+                  =
+                      <tr>
+                                            <t=
+d>
+                                                <table role=3D"present=
+ation" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0">
+ =
+                                                   <tr>
+                 =
+                                       <td align=3D"center" style=3D"paddin=
+g-right: 20px; padding-bottom: 10px; padding-left: 20px;">
+              =
+                                              <div style=3D"color: #707070;=
+ font-family: 'Times New Roman', Times, serif; font-size: 14px; line-height=
+: 18px;">
+                                                               =
+ Cambridge Belfry, Back Ln, Cambourne, Cambridge CB23 6BW - Tel: <a href=3D=
+"tel:01954 714600" style=3D"color: #535659; text-decoration: underline;">01=
+954 714600</a>
+                                                          =
+  </div>
+                                                        </td>
+=
+                                                    </tr>
+               =
+                                 </table>
+                               =
+             </td>
+                                        </tr>
+      =
+                              </table>
+                                </=
+td>
+                            </tr>
+                        </tfoot>=
+
+                    </table>
+                </td>
+            </tr>=
+
+        </table>
+
+    </body>
+
+</html>
+
+--93QQI-8f--
