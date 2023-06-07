@@ -1,0 +1,68 @@
+html, body {
+    background-color: rgb(28, 31, 33);
+    font-family: var(--sl-font-sans);
+    color: var(--sl-color-gray-600);
+    text-shadow: 1px 1px 5px black;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+.heading {
+    font-size: var(--sl-font-size-2x-large);
+    font-weight: var(--sl-font-weight-light);
+    letter-spacing: var(--sl-letter-spacing-looser);
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.clue {
+    width: 100%;
+    margin-inline: 20px;
+}
+
+.clue [slot="header"] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.clue [slot="footer"] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.wrong-answer {
+    animation: wrong-answer-wiggle 150ms ease-in-out 3,
+               wrong-answer-highlight 450ms ease-in-out 1;
+}
+
+@keyframes wrong-answer-wiggle {
+    0% {
+        transform: rotate(2deg);
+    }
+    50% {
+        transform: rotate(-2deg);
+    }
+    100% {
+        transform: rotate(2deg);
+    }
+}
+
+@keyframes wrong-answer-highlight {
+    0% {
+        box-shadow: 0 0 0px var(--sl-color-red-500);
+    }
+    50% {
+        box-shadow: 0 0 15px var(--sl-color-red-500);
+    }
+    100% {
+        box-shadow: 0 0 0px var(--sl-color-red-500);
+    }
+}

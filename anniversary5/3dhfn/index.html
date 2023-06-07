@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="../index.js"></script>
+    <link rel="stylesheet" href="../global.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.4.0/dist/themes/dark.css" />
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.4.0/dist/shoelace-autoloader.js"></script>
+</head>
+<body class="sl-theme-dark">
+<sl-card class="clue">
+    <div slot="header">
+        <h3 class="heading">Adventure awaits</h3>
+        <sl-icon-button name="bus-front"></sl-icon-button>
+    </div>
+
+    <div class="riddle">
+        <sl-button href="../4jfdd" pill>next</sl-button>
+    </div>
+</sl-card>
+
+<script>
+    initialisePuzzle('submit', 'answer', '../4jfdd', answer => answer.toLowerCase().trim().split(' ').join('') === 'ruleyourownworld');
+</script>
+</body>
+</html>
