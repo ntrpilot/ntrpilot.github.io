@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Title</title>
 
     <script src="./index.js" defer></script>
@@ -15,7 +16,7 @@
         }
 
         .heading {
-            font-size: 4rem;
+            font-size: var(--sl-font-size-2x-large);
             text-align: center;
         }
     </style>
@@ -24,10 +25,28 @@
     <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.4.0/dist/shoelace-autoloader.js"></script>
 </head>
 <body class="sl-theme-dark">
-    <h2 class="heading">welcome to your  <br/> anniversary <br/>  puzzle</h2>
-    <sl-button href="./1hjkc">
+    <h2 class="heading">welcome to your anniversary puzzle</h2>
+    <sl-button id="button">
         <sl-icon name="puzzle" slot="prefix"></sl-icon>
         Let's do this
     </sl-button>
+
+<script>
+    const onClick = () => {
+        // if (Date.now() >= new Date("10 june 2023")) {
+            window.location.href = './1hjkc';
+            return;
+        // }
+
+        const btn = document.getElementById('button');
+
+        btn.classList.add('wrong-answer');
+        setTimeout(() => {
+            btn.classList.remove('wrong-answer');
+        }, 400);
+    }
+
+    document.getElementById('button').addEventListener('click', onClick);
+</script>
 </body>
 </html>

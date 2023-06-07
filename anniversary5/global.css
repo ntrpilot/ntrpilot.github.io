@@ -12,7 +12,7 @@ html, body {
 }
 
 .heading {
-    font-size: var(--sl-font-size-2x-large);
+    font-size: var(--sl-font-size-x-large);
     font-weight: var(--sl-font-weight-light);
     letter-spacing: var(--sl-letter-spacing-looser);
     text-transform: uppercase;
@@ -57,12 +57,12 @@ html, body {
 
 @keyframes wrong-answer-highlight {
     0% {
-        box-shadow: 0 0 0px var(--sl-color-red-500);
+        box-shadow: 0 0 0 var(--sl-color-red-500);
     }
     50% {
         box-shadow: 0 0 15px var(--sl-color-red-500);
     }
     100% {
-        box-shadow: 0 0 0px var(--sl-color-red-500);
+        box-shadow: 0 0 0 var(--sl-color-red-500);
     }
 }
