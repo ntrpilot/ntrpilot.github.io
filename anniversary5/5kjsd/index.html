@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Title</title>
 
     <script src="../index.js"></script>
@@ -29,13 +29,27 @@
             text-align: center;
             gap: 8px;
         }
+
+        #hint {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+        }
     </style>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.4.0/dist/themes/dark.css" />
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.4.0/dist/shoelace-autoloader.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.4.0/dist/themes/dark.css"/>
+    <script type="module"
+            src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.4.0/dist/shoelace-autoloader.js"></script>
 </head>
 <body class="sl-theme-dark">
+
+<sl-button id="hint" size="small" pill outline>
+    <sl-icon name="patch-question" slot="prefix"></sl-icon>
+    Hint
+</sl-button>
+
 <sl-card class="clue">
+
     <div slot="header">
         <h3 class="heading">Our last stop</h3>
         <sl-icon-button name="houses"></sl-icon-button>
@@ -56,6 +70,13 @@
 </sl-card>
 
 <script>
+    document.querySelector('#hint').addEventListener('click', () => {
+        document.querySelectorAll('.input').forEach(input => input.setAttribute('inputmode', 'numeric'));
+        document.querySelector('#hint sl-icon').setAttribute('name', 'check2-circle');
+        document.querySelector('#hint').setAttribute('variant', 'success');
+        document.querySelector('#hint').setAttribute('disabled', '');
+    });
+
     initialisePuzzle('submit', 'answer', '../end-fevh', answer => answer.toLowerCase().trim().split(' ').join('') === '01803');
 </script>
 </body>
