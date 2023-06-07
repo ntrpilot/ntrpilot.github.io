@@ -20,8 +20,8 @@ html, body {
 }
 
 .clue {
-    width: 100%;
-    margin-inline: 20px;
+    width: 90vw;
+    max-height: 80vh;
 }
 
 .clue [slot="header"] {
