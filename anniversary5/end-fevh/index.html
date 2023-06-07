@@ -3,31 +3,18 @@
 <head>
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Title</title>
+    <title>I love you</title>
 
     <script src="../index.js"></script>
     <link rel="stylesheet" href="../global.css">
 
     <style>
-        .riddle {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 64px;
-
-            font-weight: var(--sl-font-weight-light);
-            letter-spacing: var(--sl-letter-spacing-looser);
-            text-transform: uppercase;
-        }
-
-        .line {
+        body {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
-            gap: 8px;
         }
     </style>
 
@@ -35,28 +22,9 @@
     <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.4.0/dist/shoelace-autoloader.js"></script>
 </head>
 <body class="sl-theme-dark">
-<sl-card class="clue">
-    <div slot="header">
-        <h3 class="heading">Our last stop</h3>
-        <sl-icon-button name="houses"></sl-icon-button>
-    </div>
 
-    <div class="riddle">
-        <span class="line"><sl-icon name="search"></sl-icon>septuagenarian for the third time</span>
-        <span class="line"><sl-icon name="search"></sl-icon>mr Richard Francis the explorer</span>
-        <span class="line"><sl-icon name="question-lg"></sl-icon>the town these two things come together,<br/> how would you have to start a call?</span>
-    </div>
+<h1 class="heading">Congratulations!</h1>
+<p>Thanks for playing my game</p>
 
-    <div slot="footer">
-        <sl-input id="answer" placeholder="Answer" size="medium">
-            <sl-icon name="hash" slot="prefix"></sl-icon>
-        </sl-input>
-        <sl-button id="submit" pill>Submit</sl-button>
-    </div>
-</sl-card>
-
-<script>
-    initialisePuzzle('submit', 'answer', '../3dhfn', answer => answer.toLowerCase().trim().split(' ').join('') === '01803');
-</script>
 </body>
 </html>
