@@ -71,7 +71,7 @@
 
 <script>
     document.querySelector('#hint').addEventListener('click', () => {
-        document.querySelectorAll('.input').forEach(input => input.setAttribute('inputmode', 'numeric'));
+        document.querySelector('#answer').shadowRoot.querySelector('input').setAttribute('inputmode', 'numeric');
         document.querySelector('#hint sl-icon').setAttribute('name', 'check2-circle');
         document.querySelector('#hint').setAttribute('variant', 'success');
         document.querySelector('#hint').setAttribute('disabled', '');
