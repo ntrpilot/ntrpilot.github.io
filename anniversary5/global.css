@@ -33,7 +33,8 @@ html, body {
 
 .clue [slot="footer"] {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: stretch;
     justify-content: center;
     gap: 8px;
 }
