@@ -37,7 +37,7 @@
 <body class="sl-theme-dark">
 <sl-card id="req" class="clue">
     <div slot="header">
-        <h3 class="heading">Book your weather</h3>
+        <h3 class="heading">Book the weather</h3>
     </div>
 
     <div class="equation">
@@ -52,6 +52,10 @@
         <div class="row">
             <sl-label>Wind speed : <b id="windDisplay">5</b> KTS</sl-label>
             <sl-range id="wind" step="1" value="5" min="0" max="35"></sl-range>
+        </div>
+        <div class="row">
+            <sl-label>Wind direction &nbsp;&nbsp; <b ><sl-icon name="cursor" id="windDirDisplay"></sl-icon></b></sl-label>
+            <sl-range id="windDir" step="1" value="5" min="0" max="360"></sl-range>
         </div>
     </div>
 
@@ -78,6 +82,12 @@
 
     window.wind.addEventListener('sl-input', e => {
         window.windDisplay.innerText = e.target.value;
+    })
+
+    const offset = -45
+    window.windDirDisplay.style.transform = `rotate(${offset}deg)`;
+    window.windDir.addEventListener('sl-input', e => {
+        window.windDirDisplay.style.transform = `rotate(${e.target.value + offset}deg)`;
     })
 
     window.submit.addEventListener('click', e => {
